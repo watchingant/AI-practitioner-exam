@@ -498,10 +498,10 @@ function showScore() {{
   document.getElementById('score-pct').textContent = `out of ${{TOTAL}} questions (${{Math.round(correctCount/TOTAL*100)}}%)`;
   const pct = correctCount / TOTAL * 100;
   let grade;
-  if (pct >= 90) grade = '🏆 Excellent — you\'re exam-ready!';
-  else if (pct >= 75) grade = '👍 Good — review your misses and try again.';
-  else if (pct >= 60) grade = '📚 Needs more study — keep going!';
-  else grade = '💪 Keep practicing — you\'ll get there!';
+  if (pct >= 90) grade = "Excellent \u2014 you\'re exam-ready!";
+  else if (pct >= 75) grade = "Good \u2014 review your misses and try again.";
+  else if (pct >= 60) grade = "Needs more study \u2014 keep going!";
+  else grade = "Keep practicing \u2014 you\'ll get there!";
   document.getElementById('score-grade').textContent = grade;
   panel.scrollIntoView({{ behavior: 'smooth' }});
 }}
