@@ -1,0 +1,2920 @@
+[
+  {
+    "id": 1,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A data scientist is building a model to predict customer churn. The target variable indicates whether a customer left (1) or stayed (0). Which type of machine learning problem is this?",
+    "options": [
+      "Binary classification",
+      "Multi-class classification",
+      "Linear regression",
+      "Clustering"
+    ],
+    "answer": "Binary classification",
+    "explanation": "Predicting one of two outcomes (churn or no churn) is a binary classification problem."
+  },
+  {
+    "id": 2,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A company wants to group its customers into segments based on purchasing behavior without any predefined labels. Which machine learning approach should they use?",
+    "options": [
+      "Supervised learning with decision trees",
+      "Unsupervised learning with clustering",
+      "Reinforcement learning with Q-learning",
+      "Supervised learning with logistic regression"
+    ],
+    "answer": "Unsupervised learning with clustering",
+    "explanation": "Grouping data without predefined labels is an unsupervised learning task, and clustering algorithms like K-means are designed for this purpose."
+  },
+  {
+    "id": 3,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A machine learning engineer notices their model performs extremely well on training data but poorly on new data. Which technique would BEST address this issue?",
+    "options": [
+      "Increasing model complexity by adding more layers",
+      "Removing all regularization parameters",
+      "Applying dropout and L2 regularization",
+      "Training for more epochs on the same data"
+    ],
+    "answer": "Applying dropout and L2 regularization",
+    "explanation": "Poor generalization to new data indicates overfitting. Regularization techniques like dropout and L2 penalize model complexity and help prevent overfitting."
+  },
+  {
+    "id": 4,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A team is evaluating a fraud detection model where only 1% of transactions are fraudulent. Which metric is MOST appropriate for assessing model performance?",
+    "options": [
+      "Overall accuracy",
+      "R-squared value",
+      "Training loss",
+      "Precision-Recall AUC"
+    ],
+    "answer": "Precision-Recall AUC",
+    "explanation": "With highly imbalanced classes, accuracy can be misleading. Precision-Recall AUC focuses on the minority class performance and is more informative for fraud detection."
+  },
+  {
+    "id": 5,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which AWS service provides a fully managed environment for building, training, and deploying machine learning models at scale?",
+    "options": [
+      "Amazon SageMaker",
+      "Amazon Rekognition",
+      "AWS Lambda",
+      "Amazon Comprehend"
+    ],
+    "answer": "Amazon SageMaker",
+    "explanation": "Amazon SageMaker is a fully managed ML service that provides tools for every step of the ML workflow including building, training, and deploying models."
+  },
+  {
+    "id": 6,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A data engineer needs to handle missing values in a dataset before training. Which approach is commonly used in data preprocessing?",
+    "options": [
+      "Deleting the entire dataset and starting over",
+      "Imputation using mean, median, or mode values",
+      "Converting all features to boolean",
+      "Ignoring missing values during training"
+    ],
+    "answer": "Imputation using mean, median, or mode values",
+    "explanation": "Imputation replaces missing values with statistical measures like mean, median, or mode, preserving the dataset size while handling incomplete data."
+  },
+  {
+    "id": 7,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A team is building a model to predict house prices based on features like square footage, number of bedrooms, and location. Which algorithm type is MOST appropriate?",
+    "options": [
+      "K-means clustering",
+      "Anomaly detection",
+      "Regression algorithm",
+      "Association rule mining"
+    ],
+    "answer": "Regression algorithm",
+    "explanation": "Predicting a continuous numerical value (house price) is a regression task. Algorithms like linear regression or gradient boosted trees are appropriate."
+  },
+  {
+    "id": 8,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "In the context of neural networks, what does the term 'epoch' refer to?",
+    "options": [
+      "The number of neurons in a hidden layer",
+      "The time taken to process a single batch",
+      "The learning rate schedule for gradient descent",
+      "One complete pass through the entire training dataset"
+    ],
+    "answer": "One complete pass through the entire training dataset",
+    "explanation": "An epoch represents one complete forward and backward pass through all training examples in the dataset."
+  },
+  {
+    "id": 9,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A machine learning team splits their data into training, validation, and test sets. What is the primary purpose of the validation set?",
+    "options": [
+      "To tune hyperparameters and prevent overfitting during development",
+      "To provide final unbiased evaluation of the model",
+      "To train the model weights through backpropagation",
+      "To augment the training data with additional examples"
+    ],
+    "answer": "To tune hyperparameters and prevent overfitting during development",
+    "explanation": "The validation set is used during model development to tune hyperparameters and make architecture decisions without contaminating the final test evaluation."
+  },
+  {
+    "id": 10,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which type of neural network architecture is BEST suited for image classification tasks?",
+    "options": [
+      "Recurrent Neural Network (RNN)",
+      "Convolutional Neural Network (CNN)",
+      "Generative Adversarial Network (GAN)",
+      "Simple feedforward network with one hidden layer"
+    ],
+    "answer": "Convolutional Neural Network (CNN)",
+    "explanation": "CNNs use convolutional layers that can detect spatial hierarchies and patterns in images, making them ideal for image classification."
+  },
+  {
+    "id": 11,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A company uses Amazon SageMaker to train a model. They want to automatically find the best combination of learning rate, batch size, and number of layers. Which SageMaker feature should they use?",
+    "options": [
+      "SageMaker Data Wrangler",
+      "SageMaker Feature Store",
+      "SageMaker Automatic Model Tuning (Hyperparameter Optimization)",
+      "SageMaker Model Monitor"
+    ],
+    "answer": "SageMaker Automatic Model Tuning (Hyperparameter Optimization)",
+    "explanation": "SageMaker Automatic Model Tuning runs multiple training jobs with different hyperparameter combinations to find the optimal configuration."
+  },
+  {
+    "id": 12,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which evaluation metric calculates the harmonic mean of precision and recall?",
+    "options": [
+      "AUC-ROC",
+      "Mean Absolute Error",
+      "Root Mean Square Error",
+      "F1 Score"
+    ],
+    "answer": "F1 Score",
+    "explanation": "The F1 Score is the harmonic mean of precision and recall, providing a balanced measure when both false positives and false negatives are important."
+  },
+  {
+    "id": 13,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "An ML engineer is working with a dataset that has 100 features. Many features are correlated and some add noise. Which technique should they apply to reduce dimensionality?",
+    "options": [
+      "Principal Component Analysis (PCA)",
+      "Gradient descent optimization",
+      "Batch normalization",
+      "Data augmentation"
+    ],
+    "answer": "Principal Component Analysis (PCA)",
+    "explanation": "PCA is a dimensionality reduction technique that transforms features into a smaller set of uncorrelated components while preserving maximum variance."
+  },
+  {
+    "id": 14,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "In reinforcement learning, what does the 'reward signal' represent?",
+    "options": [
+      "The loss function used during backpropagation",
+      "Feedback from the environment indicating how well the agent performed an action",
+      "The labeled output in a supervised learning dataset",
+      "The gradient update applied to network weights"
+    ],
+    "answer": "Feedback from the environment indicating how well the agent performed an action",
+    "explanation": "In reinforcement learning, the reward signal provides feedback to the agent about the desirability of its actions, guiding the learning of optimal policies."
+  },
+  {
+    "id": 15,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A model has high bias and low variance. Which term BEST describes this situation?",
+    "options": [
+      "Overfitting",
+      "Optimal fit",
+      "Underfitting",
+      "Memorization"
+    ],
+    "answer": "Underfitting",
+    "explanation": "High bias and low variance indicate underfitting - the model is too simple to capture the underlying patterns in the data."
+  },
+  {
+    "id": 16,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which SageMaker feature allows data scientists to interactively prepare and transform data using a visual interface without writing code?",
+    "options": [
+      "SageMaker Autopilot",
+      "SageMaker Pipelines",
+      "SageMaker Debugger",
+      "SageMaker Data Wrangler"
+    ],
+    "answer": "SageMaker Data Wrangler",
+    "explanation": "SageMaker Data Wrangler provides a visual interface for data preparation, allowing users to import, transform, and analyze data without coding."
+  },
+  {
+    "id": 17,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A company wants to build a recommendation system that suggests products to users. Which approach uses both user behavior patterns and item characteristics?",
+    "options": [
+      "Hybrid recommendation combining collaborative and content-based filtering",
+      "Collaborative filtering only",
+      "Content-based filtering only",
+      "Rule-based keyword matching"
+    ],
+    "answer": "Hybrid recommendation combining collaborative and content-based filtering",
+    "explanation": "Hybrid recommendations combine collaborative filtering (user behavior patterns) with content-based filtering (item characteristics) for more accurate suggestions."
+  },
+  {
+    "id": 18,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "When training a deep learning model, what is the purpose of the learning rate?",
+    "options": [
+      "It determines the number of training epochs",
+      "It controls how much model weights are updated during each optimization step",
+      "It sets the size of the validation dataset",
+      "It defines the number of neurons in each layer"
+    ],
+    "answer": "It controls how much model weights are updated during each optimization step",
+    "explanation": "The learning rate determines the step size during gradient descent optimization, controlling how much weights change in response to the estimated error."
+  },
+  {
+    "id": 19,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which type of machine learning is used to train game-playing AI agents that learn optimal strategies through trial and error?",
+    "options": [
+      "Supervised learning",
+      "Unsupervised learning",
+      "Reinforcement learning",
+      "Semi-supervised learning"
+    ],
+    "answer": "Reinforcement learning",
+    "explanation": "Reinforcement learning trains agents through trial and error interactions with an environment, learning optimal strategies by maximizing cumulative rewards."
+  },
+  {
+    "id": 20,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A company needs to detect unusual network traffic patterns that might indicate security threats. They have no labeled examples of attacks. Which ML approach is MOST suitable?",
+    "options": [
+      "Supervised binary classification",
+      "Reinforcement learning with reward shaping",
+      "Regression with labeled attack data",
+      "Anomaly detection using unsupervised learning"
+    ],
+    "answer": "Anomaly detection using unsupervised learning",
+    "explanation": "Without labeled examples, anomaly detection using unsupervised methods can identify unusual patterns by learning what normal traffic looks like and flagging deviations."
+  },
+  {
+    "id": 21,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which metric measures the proportion of actual positive cases that were correctly identified by the model?",
+    "options": [
+      "Recall (Sensitivity)",
+      "Specificity",
+      "Precision",
+      "Accuracy"
+    ],
+    "answer": "Recall (Sensitivity)",
+    "explanation": "Recall (also called sensitivity or true positive rate) measures the proportion of actual positives correctly identified: TP/(TP+FN)."
+  },
+  {
+    "id": 22,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A data scientist wants to create new features from existing ones to improve model performance. For example, combining 'length' and 'width' into 'area'. What is this process called?",
+    "options": [
+      "Model deployment",
+      "Feature engineering",
+      "Hyperparameter tuning",
+      "Cross-validation"
+    ],
+    "answer": "Feature engineering",
+    "explanation": "Feature engineering is the process of creating new features from existing data to better represent the underlying problem and improve model performance."
+  },
+  {
+    "id": 23,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which AWS service would you use to automatically build, train, and tune ML models with minimal ML expertise required?",
+    "options": [
+      "Amazon Polly",
+      "Amazon Textract",
+      "Amazon SageMaker Autopilot",
+      "AWS Glue"
+    ],
+    "answer": "Amazon SageMaker Autopilot",
+    "explanation": "SageMaker Autopilot automatically explores different solutions to find the best model, requiring minimal ML expertise from the user."
+  },
+  {
+    "id": 24,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "In a confusion matrix for binary classification, what does a false negative represent?",
+    "options": [
+      "The model predicted positive, and the actual value was positive",
+      "The model predicted negative, and the actual value was negative",
+      "The model predicted positive, but the actual value was negative",
+      "The model predicted negative, but the actual value was positive"
+    ],
+    "answer": "The model predicted negative, but the actual value was positive",
+    "explanation": "A false negative occurs when the model incorrectly predicts the negative class for an instance that is actually positive."
+  },
+  {
+    "id": 25,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which technique involves training a model on different subsets of data multiple times to get a more reliable estimate of model performance?",
+    "options": [
+      "Cross-validation",
+      "Data augmentation",
+      "Transfer learning",
+      "Batch normalization"
+    ],
+    "answer": "Cross-validation",
+    "explanation": "Cross-validation divides data into multiple folds, training and evaluating the model on different subsets to provide a more robust performance estimate."
+  },
+  {
+    "id": 26,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A team is building a natural language processing model to classify customer support tickets into categories. They have 50,000 labeled examples. Which approach is MOST appropriate?",
+    "options": [
+      "Unsupervised clustering with K-means",
+      "Supervised learning with a text classification model",
+      "Reinforcement learning with ticket routing rewards",
+      "Principal Component Analysis for dimensionality reduction"
+    ],
+    "answer": "Supervised learning with a text classification model",
+    "explanation": "With labeled examples and defined categories, supervised learning with a text classification model is the most appropriate approach."
+  },
+  {
+    "id": 27,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "What is the primary advantage of using ensemble methods like Random Forest over a single decision tree?",
+    "options": [
+      "Ensemble methods train faster than single trees",
+      "Ensemble methods use less memory",
+      "Ensemble methods reduce overfitting by combining multiple models",
+      "Ensemble methods eliminate the need for feature engineering"
+    ],
+    "answer": "Ensemble methods reduce overfitting by combining multiple models",
+    "explanation": "Ensemble methods like Random Forest combine predictions from multiple trees, reducing variance and overfitting compared to a single decision tree."
+  },
+  {
+    "id": 28,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which Recurrent Neural Network variant is specifically designed to handle the vanishing gradient problem in long sequences?",
+    "options": [
+      "Standard RNN with tanh activation",
+      "Autoencoder network",
+      "Single-layer perceptron",
+      "Long Short-Term Memory (LSTM)"
+    ],
+    "answer": "Long Short-Term Memory (LSTM)",
+    "explanation": "LSTM networks use gate mechanisms (forget, input, output gates) to selectively retain or discard information, solving the vanishing gradient problem in long sequences."
+  },
+  {
+    "id": 29,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A company wants to use Amazon SageMaker to create a reproducible and automated ML workflow that includes data processing, training, and deployment steps. Which feature should they use?",
+    "options": [
+      "SageMaker Pipelines",
+      "SageMaker Ground Truth",
+      "SageMaker Canvas",
+      "SageMaker Jumpstart"
+    ],
+    "answer": "SageMaker Pipelines",
+    "explanation": "SageMaker Pipelines enables the creation of automated, reproducible ML workflows with defined steps for data processing, training, evaluation, and deployment."
+  },
+  {
+    "id": 30,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "When evaluating a regression model, which metric measures the average magnitude of prediction errors?",
+    "options": [
+      "F1 Score",
+      "Mean Absolute Error (MAE)",
+      "AUC-ROC",
+      "Precision"
+    ],
+    "answer": "Mean Absolute Error (MAE)",
+    "explanation": "MAE calculates the average of the absolute differences between predicted and actual values, measuring the average magnitude of errors in regression."
+  },
+  {
+    "id": 31,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A data scientist needs to convert categorical text features (like 'red', 'blue', 'green') into numerical format for model training. Which technique is commonly used?",
+    "options": [
+      "Principal Component Analysis",
+      "Gradient clipping",
+      "One-hot encoding",
+      "Batch normalization"
+    ],
+    "answer": "One-hot encoding",
+    "explanation": "One-hot encoding converts categorical variables into binary vectors, creating a new binary column for each category value."
+  },
+  {
+    "id": 32,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "Which SageMaker feature enables continuous monitoring of deployed models for data drift and quality degradation?",
+    "options": [
+      "SageMaker Experiments",
+      "SageMaker Edge Manager",
+      "SageMaker Neo",
+      "SageMaker Model Monitor"
+    ],
+    "answer": "SageMaker Model Monitor",
+    "explanation": "SageMaker Model Monitor continuously monitors deployed models for data quality, model quality, bias drift, and feature attribution drift."
+  },
+  {
+    "id": 33,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "What does the AUC-ROC metric represent in the context of binary classification?",
+    "options": [
+      "The model's ability to distinguish between positive and negative classes across all thresholds",
+      "The ratio of training time to inference time",
+      "The total number of parameters in the model",
+      "The percentage of features used by the model"
+    ],
+    "answer": "The model's ability to distinguish between positive and negative classes across all thresholds",
+    "explanation": "AUC-ROC measures the model's discrimination ability across all classification thresholds, with 1.0 indicating perfect separation and 0.5 indicating random guessing."
+  },
+  {
+    "id": 34,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "mcq",
+    "text": "A company is using Amazon SageMaker and wants to label a large dataset of images for training. Which service helps manage human labeling workflows?",
+    "options": [
+      "SageMaker Feature Store",
+      "SageMaker Ground Truth",
+      "SageMaker Clarify",
+      "SageMaker Debugger"
+    ],
+    "answer": "SageMaker Ground Truth",
+    "explanation": "SageMaker Ground Truth provides managed data labeling workflows using human annotators or automated labeling with active learning."
+  },
+  {
+    "id": 35,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "multi-select",
+    "text": "A machine learning team is experiencing overfitting in their deep learning model. Which TWO techniques can help reduce overfitting? (Select TWO)",
+    "options": [
+      "Increasing the number of training epochs",
+      "Adding dropout layers to the network",
+      "Removing the validation set",
+      "Applying early stopping based on validation loss",
+      "Using a larger model architecture"
+    ],
+    "answer": [
+      "Adding dropout layers to the network",
+      "Applying early stopping based on validation loss"
+    ],
+    "explanation": "Dropout randomly deactivates neurons during training to prevent co-adaptation, and early stopping halts training when validation performance degrades, both reducing overfitting."
+  },
+  {
+    "id": 36,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "multi-select",
+    "text": "A data engineer is preparing data for an ML model. Which TWO steps are essential parts of data preprocessing? (Select TWO)",
+    "options": [
+      "Deploying the model to production",
+      "Handling missing values through imputation or removal",
+      "Deploying infrastructure with CloudFormation",
+      "Normalizing or standardizing numerical features",
+      "Writing unit tests for the application"
+    ],
+    "answer": [
+      "Handling missing values through imputation or removal",
+      "Normalizing or standardizing numerical features"
+    ],
+    "explanation": "Data preprocessing includes handling missing values and normalizing features to ensure the model receives clean, consistently scaled input data."
+  },
+  {
+    "id": 37,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "multi-select",
+    "text": "Which THREE characteristics describe supervised learning? (Select THREE)",
+    "options": [
+      "Requires labeled training data with input-output pairs",
+      "Discovers hidden patterns without predefined targets",
+      "Uses a reward signal to learn optimal actions",
+      "Can perform classification tasks",
+      "Can perform regression tasks",
+      "Always requires real-time data streams"
+    ],
+    "answer": [
+      "Requires labeled training data with input-output pairs",
+      "Can perform classification tasks",
+      "Can perform regression tasks"
+    ],
+    "explanation": "Supervised learning uses labeled data (input-output pairs) and can perform both classification (predicting categories) and regression (predicting continuous values)."
+  },
+  {
+    "id": 38,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "multi-select",
+    "text": "A company is evaluating AWS AI services for different use cases. Which TWO services provide pre-trained AI capabilities that do NOT require custom model training? (Select TWO)",
+    "options": [
+      "Amazon SageMaker training jobs",
+      "Amazon Rekognition for image analysis",
+      "AWS Glue for ETL jobs",
+      "Amazon Comprehend for natural language processing",
+      "Amazon EC2 for compute"
+    ],
+    "answer": [
+      "Amazon Rekognition for image analysis",
+      "Amazon Comprehend for natural language processing"
+    ],
+    "explanation": "Rekognition and Comprehend are pre-trained AI services that provide ready-to-use capabilities for image analysis and NLP without requiring custom model training."
+  },
+  {
+    "id": 39,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "multi-select",
+    "text": "Which TWO metrics are MOST appropriate for evaluating a regression model's performance? (Select TWO)",
+    "options": [
+      "Precision and Recall",
+      "Root Mean Square Error (RMSE)",
+      "F1 Score",
+      "Mean Absolute Error (MAE)",
+      "AUC-ROC"
+    ],
+    "answer": [
+      "Root Mean Square Error (RMSE)",
+      "Mean Absolute Error (MAE)"
+    ],
+    "explanation": "RMSE and MAE are regression metrics that measure prediction errors. Precision, Recall, F1, and AUC-ROC are classification metrics."
+  },
+  {
+    "id": 40,
+    "domain": "Domain 1: Fundamentals of AI and Machine Learning",
+    "type": "multi-select",
+    "text": "A team needs to build an ML pipeline on AWS. Which TWO SageMaker features help automate and manage the ML lifecycle? (Select TWO)",
+    "options": [
+      "SageMaker Pipelines for workflow orchestration",
+      "Amazon S3 for object storage",
+      "SageMaker Experiments for tracking model iterations",
+      "Amazon CloudFront for content delivery",
+      "AWS Direct Connect for networking"
+    ],
+    "answer": [
+      "SageMaker Pipelines for workflow orchestration",
+      "SageMaker Experiments for tracking model iterations"
+    ],
+    "explanation": "SageMaker Pipelines automates ML workflows and SageMaker Experiments tracks and compares model training iterations, both key to ML lifecycle management."
+  },
+  {
+    "id": 41,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which architecture forms the foundation of most modern large language models (LLMs)?",
+    "options": [
+      "Convolutional Neural Network (CNN)",
+      "Recurrent Neural Network (RNN)",
+      "Transformer",
+      "Generative Adversarial Network (GAN)"
+    ],
+    "answer": "Transformer",
+    "explanation": "The Transformer architecture, introduced in 'Attention Is All You Need,' uses self-attention mechanisms and forms the basis of modern LLMs like GPT and Claude."
+  },
+  {
+    "id": 42,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A developer is using Amazon Bedrock and wants to control the randomness of model outputs. Which inference parameter should they adjust?",
+    "options": [
+      "Max tokens",
+      "Top-k filtering",
+      "Stop sequences",
+      "Temperature"
+    ],
+    "answer": "Temperature",
+    "explanation": "Temperature controls the randomness of outputs. Lower values make responses more deterministic and focused, while higher values increase creativity and diversity."
+  },
+  {
+    "id": 43,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What is the primary difference between pre-training and fine-tuning a foundation model?",
+    "options": [
+      "Pre-training learns general knowledge from large corpora while fine-tuning adapts the model to specific tasks",
+      "Pre-training uses labeled data while fine-tuning uses unlabeled data",
+      "Pre-training is faster than fine-tuning",
+      "Pre-training requires less compute than fine-tuning"
+    ],
+    "answer": "Pre-training learns general knowledge from large corpora while fine-tuning adapts the model to specific tasks",
+    "explanation": "Pre-training exposes the model to vast amounts of general data to learn language patterns, while fine-tuning uses task-specific data to adapt the model for particular use cases."
+  },
+  {
+    "id": 44,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A team notices their LLM sometimes generates factually incorrect information presented confidently. What is this phenomenon called?",
+    "options": [
+      "Model drift",
+      "Hallucination",
+      "Catastrophic forgetting",
+      "Gradient explosion"
+    ],
+    "answer": "Hallucination",
+    "explanation": "Hallucination occurs when an LLM generates plausible-sounding but factually incorrect or fabricated information with apparent confidence."
+  },
+  {
+    "id": 45,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which prompt engineering technique provides the model with examples of desired input-output pairs before asking it to perform a task?",
+    "options": [
+      "Zero-shot prompting",
+      "Chain-of-thought prompting",
+      "Few-shot prompting",
+      "Instruction tuning"
+    ],
+    "answer": "Few-shot prompting",
+    "explanation": "Few-shot prompting includes examples of input-output pairs in the prompt to demonstrate the desired behavior before presenting the actual task."
+  },
+  {
+    "id": 46,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "In the context of LLMs, what is tokenization?",
+    "options": [
+      "The process of encrypting model weights for security",
+      "Converting model outputs into human-readable format",
+      "Assigning access tokens for API authentication",
+      "Breaking input text into smaller units (tokens) that the model can process"
+    ],
+    "answer": "Breaking input text into smaller units (tokens) that the model can process",
+    "explanation": "Tokenization splits input text into tokens (words, subwords, or characters) that serve as the basic units the model processes and generates."
+  },
+  {
+    "id": 47,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which generative AI technique uses two competing neural networks - a generator and a discriminator - to produce realistic synthetic data?",
+    "options": [
+      "Generative Adversarial Network (GAN)",
+      "Variational Autoencoder (VAE)",
+      "Transformer encoder-decoder",
+      "Diffusion model"
+    ],
+    "answer": "Generative Adversarial Network (GAN)",
+    "explanation": "GANs use a generator that creates synthetic data and a discriminator that evaluates it, with both networks improving through adversarial training."
+  },
+  {
+    "id": 48,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A company wants to use Amazon Bedrock to access foundation models. Which statement BEST describes Amazon Bedrock?",
+    "options": [
+      "A service for training custom models from scratch on AWS infrastructure",
+      "A fully managed service that provides access to foundation models from multiple providers through an API",
+      "A data labeling service for creating training datasets",
+      "A model deployment service exclusively for SageMaker models"
+    ],
+    "answer": "A fully managed service that provides access to foundation models from multiple providers through an API",
+    "explanation": "Amazon Bedrock is a managed service providing API access to foundation models from Amazon (Titan), Anthropic (Claude), Meta (Llama), and other providers."
+  },
+  {
+    "id": 49,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What role do embeddings play in natural language processing?",
+    "options": [
+      "They compress model weights for faster inference",
+      "They encrypt sensitive data before model processing",
+      "They represent words or text as dense numerical vectors that capture semantic meaning",
+      "They define the model's network architecture"
+    ],
+    "answer": "They represent words or text as dense numerical vectors that capture semantic meaning",
+    "explanation": "Embeddings map text to dense vector representations where semantically similar content is positioned closer together in the vector space."
+  },
+  {
+    "id": 50,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which prompt engineering approach asks the model to show its reasoning step by step before providing a final answer?",
+    "options": [
+      "Few-shot prompting",
+      "Zero-shot prompting",
+      "Template-based prompting",
+      "Chain-of-thought prompting"
+    ],
+    "answer": "Chain-of-thought prompting",
+    "explanation": "Chain-of-thought prompting instructs the model to break down complex reasoning into intermediate steps, improving accuracy on multi-step problems."
+  },
+  {
+    "id": 51,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What is transfer learning in the context of foundation models?",
+    "options": [
+      "Leveraging knowledge learned from one task or domain and applying it to a different task",
+      "Transferring data between training and test sets",
+      "Moving a model from one AWS region to another",
+      "Copying model weights between different hardware accelerators"
+    ],
+    "answer": "Leveraging knowledge learned from one task or domain and applying it to a different task",
+    "explanation": "Transfer learning uses knowledge from pre-training on large datasets and applies it to new, often smaller, task-specific datasets, reducing the need for extensive training."
+  },
+  {
+    "id": 52,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A developer sets the top-p parameter to 0.1 when calling an LLM. What effect does this have?",
+    "options": [
+      "The model generates exactly 10 tokens per response",
+      "The model considers only the top 10% cumulative probability tokens, producing more focused outputs",
+      "The response latency is reduced by 10%",
+      "The model randomly samples from all possible tokens"
+    ],
+    "answer": "The model considers only the top 10% cumulative probability tokens, producing more focused outputs",
+    "explanation": "Top-p (nucleus sampling) limits token selection to the smallest set whose cumulative probability exceeds the threshold, with 0.1 being very restrictive and focused."
+  },
+  {
+    "id": 53,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which evaluation metric measures the overlap of n-grams between generated text and reference text, commonly used for summarization tasks?",
+    "options": [
+      "BLEU score",
+      "Perplexity",
+      "ROUGE score",
+      "BERTScore"
+    ],
+    "answer": "ROUGE score",
+    "explanation": "ROUGE (Recall-Oriented Understudy for Gisting Evaluation) measures n-gram overlap between generated and reference summaries, commonly used for evaluating summarization."
+  },
+  {
+    "id": 54,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What is the self-attention mechanism in Transformers primarily used for?",
+    "options": [
+      "Reducing the model's memory footprint",
+      "Compressing the input sequence length",
+      "Preventing overfitting during training",
+      "Allowing each token to attend to and weigh the importance of all other tokens in the sequence"
+    ],
+    "answer": "Allowing each token to attend to and weigh the importance of all other tokens in the sequence",
+    "explanation": "Self-attention computes relevance scores between all pairs of tokens, allowing the model to capture long-range dependencies and contextual relationships."
+  },
+  {
+    "id": 55,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A team wants to generate images from text descriptions. Which type of generative model has shown state-of-the-art results for this task?",
+    "options": [
+      "Diffusion model",
+      "Convolutional classifier",
+      "Recurrent Neural Network",
+      "Support Vector Machine"
+    ],
+    "answer": "Diffusion model",
+    "explanation": "Diffusion models progressively denoise random noise to generate high-quality images from text prompts and have achieved state-of-the-art results in text-to-image generation."
+  },
+  {
+    "id": 56,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "When selecting a foundation model for a task, which factor is LEAST relevant to the decision?",
+    "options": [
+      "The model's performance on similar tasks",
+      "The physical location of the data center hardware",
+      "The model's context window size",
+      "The model's training data and potential biases"
+    ],
+    "answer": "The physical location of the data center hardware",
+    "explanation": "Model selection should focus on performance, capabilities (context window), and characteristics (training data/biases). Physical hardware location is an infrastructure concern, not a model selection criterion."
+  },
+  {
+    "id": 57,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which Amazon Titan model is specifically designed to convert text into numerical vector representations for search and retrieval?",
+    "options": [
+      "Amazon Titan Text Generate",
+      "Amazon Titan Image Generator",
+      "Amazon Titan Embeddings",
+      "Amazon Titan Multimodal"
+    ],
+    "answer": "Amazon Titan Embeddings",
+    "explanation": "Amazon Titan Embeddings converts text into dense vector representations optimized for semantic search, retrieval, and similarity comparisons."
+  },
+  {
+    "id": 58,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What is the primary purpose of instruction tuning (also called instruction fine-tuning) for LLMs?",
+    "options": [
+      "To increase the model's vocabulary size",
+      "To enable the model to process images",
+      "To reduce the model's inference latency",
+      "To make the model better at following human instructions and producing helpful responses"
+    ],
+    "answer": "To make the model better at following human instructions and producing helpful responses",
+    "explanation": "Instruction tuning trains models on instruction-response pairs to improve their ability to follow diverse human instructions and generate helpful, aligned outputs."
+  },
+  {
+    "id": 59,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A Variational Autoencoder (VAE) consists of which two main components?",
+    "options": [
+      "Encoder and decoder",
+      "Generator and discriminator",
+      "Attention heads and feedforward layers",
+      "Convolutional and pooling layers"
+    ],
+    "answer": "Encoder and decoder",
+    "explanation": "A VAE has an encoder that maps input to a latent distribution and a decoder that reconstructs data from sampled latent representations."
+  },
+  {
+    "id": 60,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which metric measures how well a language model predicts a sample, with lower values indicating better performance?",
+    "options": [
+      "ROUGE-L",
+      "Perplexity",
+      "BLEU-4",
+      "Cosine similarity"
+    ],
+    "answer": "Perplexity",
+    "explanation": "Perplexity measures how well a probability model predicts a sample. Lower perplexity indicates the model is less surprised by the text and better at prediction."
+  },
+  {
+    "id": 61,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A startup wants to use a foundation model but cannot afford to fine-tune it. Which approach allows them to adapt model behavior without modifying weights?",
+    "options": [
+      "Full model retraining from scratch",
+      "Replacing the model architecture",
+      "Prompt engineering with carefully crafted instructions",
+      "Reducing the number of attention heads"
+    ],
+    "answer": "Prompt engineering with carefully crafted instructions",
+    "explanation": "Prompt engineering adapts model behavior through input design without changing model weights, making it cost-effective and accessible without compute-intensive fine-tuning."
+  },
+  {
+    "id": 62,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What happens when the max_tokens parameter is set too low for a generation task?",
+    "options": [
+      "The model produces higher quality output",
+      "The temperature is automatically reduced",
+      "The model generates tokens faster",
+      "The model's response may be truncated before completing the intended output"
+    ],
+    "answer": "The model's response may be truncated before completing the intended output",
+    "explanation": "The max_tokens parameter limits the length of generated output. If set too low, the response will be cut off before the model finishes its intended generation."
+  },
+  {
+    "id": 63,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which statement about zero-shot prompting is correct?",
+    "options": [
+      "It asks the model to perform a task without any demonstration examples",
+      "It requires at least one example in the prompt",
+      "It always produces more accurate results than few-shot prompting",
+      "It requires fine-tuning the model first"
+    ],
+    "answer": "It asks the model to perform a task without any demonstration examples",
+    "explanation": "Zero-shot prompting provides only the task instruction without any examples, relying on the model's pre-trained knowledge to understand and complete the task."
+  },
+  {
+    "id": 64,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "In transformer models, what determines the maximum amount of text the model can process in a single request?",
+    "options": [
+      "The number of attention heads",
+      "The context window (or context length)",
+      "The embedding dimension size",
+      "The number of transformer layers"
+    ],
+    "answer": "The context window (or context length)",
+    "explanation": "The context window defines the maximum number of tokens the model can handle in a single input/output interaction, limiting both prompt and response combined."
+  },
+  {
+    "id": 65,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A company needs to evaluate the quality of their LLM's text generation for customer service responses. Which approach provides the MOST comprehensive evaluation?",
+    "options": [
+      "Relying solely on automated BLEU scores",
+      "Using only perplexity measurements",
+      "Combining automated metrics with human evaluation for helpfulness and accuracy",
+      "Measuring only the generation speed"
+    ],
+    "answer": "Combining automated metrics with human evaluation for helpfulness and accuracy",
+    "explanation": "Human evaluation captures subjective qualities like helpfulness and accuracy that automated metrics may miss, while automated metrics provide scalable quantitative assessment."
+  },
+  {
+    "id": 66,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What is the key innovation of the attention mechanism compared to traditional sequence models?",
+    "options": [
+      "It processes all tokens sequentially like RNNs",
+      "It reduces the vocabulary size needed for training",
+      "It eliminates the need for GPU computation",
+      "It allows parallel processing of all positions and direct connections between any two positions in the sequence"
+    ],
+    "answer": "It allows parallel processing of all positions and direct connections between any two positions in the sequence",
+    "explanation": "Unlike RNNs that process sequentially, attention enables parallel computation and direct token-to-token connections regardless of distance, improving efficiency and long-range dependencies."
+  },
+  {
+    "id": 67,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which foundation model provider offers the Claude family of models on Amazon Bedrock?",
+    "options": [
+      "Anthropic",
+      "Amazon",
+      "Meta",
+      "Stability AI"
+    ],
+    "answer": "Anthropic",
+    "explanation": "Anthropic is the provider of Claude models, which are available through Amazon Bedrock alongside models from other providers like Meta, Amazon, and others."
+  },
+  {
+    "id": 68,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A developer wants to prevent their LLM from generating responses about certain prohibited topics. Which approach is MOST effective?",
+    "options": [
+      "Setting temperature to 0",
+      "Implementing system prompts with clear content boundaries and guardrails",
+      "Reducing the max_tokens parameter",
+      "Using a smaller model"
+    ],
+    "answer": "Implementing system prompts with clear content boundaries and guardrails",
+    "explanation": "System prompts with explicit boundaries and guardrails provide instructions about what topics to avoid, effectively constraining the model's outputs on prohibited topics."
+  },
+  {
+    "id": 69,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What does the term 'foundation model' refer to?",
+    "options": [
+      "Any machine learning model used in production",
+      "A model specifically designed for a single use case",
+      "A model trained on broad data that can be adapted to many downstream tasks",
+      "The first version of any neural network architecture"
+    ],
+    "answer": "A model trained on broad data that can be adapted to many downstream tasks",
+    "explanation": "Foundation models are large models pre-trained on diverse data at scale, designed to be adapted to a wide range of downstream tasks through fine-tuning or prompt engineering."
+  },
+  {
+    "id": 70,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "When using the BLEU metric to evaluate machine translation, what does a higher BLEU score indicate?",
+    "options": [
+      "The translation is shorter than the reference",
+      "The translation took longer to generate",
+      "The model used more compute resources",
+      "The generated translation has higher n-gram overlap with the reference translation"
+    ],
+    "answer": "The generated translation has higher n-gram overlap with the reference translation",
+    "explanation": "BLEU measures precision of n-gram matches between generated and reference translations. Higher scores indicate closer alignment with reference translations."
+  },
+  {
+    "id": 71,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A company is deciding between using a large foundation model versus a smaller specialized model. In which scenario would the smaller specialized model be preferred?",
+    "options": [
+      "When the company needs high accuracy on a narrow, well-defined task and has abundant domain data",
+      "When the company has limited domain-specific training data",
+      "When the task requires broad general knowledge across many domains",
+      "When the task involves creative open-ended generation"
+    ],
+    "answer": "When the company needs high accuracy on a narrow, well-defined task and has abundant domain data",
+    "explanation": "Smaller specialized models excel when focused on specific tasks with ample training data, often achieving higher accuracy than general-purpose models for narrow use cases."
+  },
+  {
+    "id": 72,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What is the purpose of the softmax function in the final layer of a language model?",
+    "options": [
+      "To reduce the dimensionality of embeddings",
+      "To normalize the output into a probability distribution over the vocabulary",
+      "To apply dropout for regularization",
+      "To compute the loss function gradient"
+    ],
+    "answer": "To normalize the output into a probability distribution over the vocabulary",
+    "explanation": "Softmax converts the model's raw output logits into a probability distribution, allowing the model to sample or select the next token based on predicted probabilities."
+  },
+  {
+    "id": 73,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which parameter determines how many of the highest-probability tokens are considered during generation when using top-k sampling?",
+    "options": [
+      "Temperature",
+      "Top-p",
+      "Top-k",
+      "Frequency penalty"
+    ],
+    "answer": "Top-k",
+    "explanation": "Top-k sampling restricts the model to only consider the k tokens with the highest probability, limiting the pool of candidates for the next token."
+  },
+  {
+    "id": 74,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A research team wants to reduce hallucinations in their LLM-powered application. Which technique is MOST effective for grounding model responses in factual information?",
+    "options": [
+      "Increasing the temperature parameter",
+      "Reducing the model size",
+      "Using a larger context window",
+      "Retrieval-Augmented Generation (RAG)"
+    ],
+    "answer": "Retrieval-Augmented Generation (RAG)",
+    "explanation": "RAG retrieves relevant documents from a knowledge base and includes them in the prompt, grounding the model's responses in verified factual information."
+  },
+  {
+    "id": 75,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What distinguishes an encoder-decoder transformer from a decoder-only transformer?",
+    "options": [
+      "Encoder-decoder models are designed for sequence-to-sequence tasks like translation, while decoder-only models excel at text generation",
+      "Encoder-decoder models can only process text while decoder-only handles images",
+      "Decoder-only models are always larger than encoder-decoder models",
+      "Encoder-decoder models do not use attention mechanisms"
+    ],
+    "answer": "Encoder-decoder models are designed for sequence-to-sequence tasks like translation, while decoder-only models excel at text generation",
+    "explanation": "Encoder-decoder transformers (like T5) process input with an encoder and generate output with a decoder, ideal for translation. Decoder-only models (like GPT) generate text autoregressively."
+  },
+  {
+    "id": 76,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A company fine-tuned a foundation model on proprietary data. The model now performs well on the new domain but has lost some general capabilities. What is this phenomenon called?",
+    "options": [
+      "Transfer learning",
+      "Catastrophic forgetting",
+      "Gradient vanishing",
+      "Mode collapse"
+    ],
+    "answer": "Catastrophic forgetting",
+    "explanation": "Catastrophic forgetting occurs when fine-tuning causes a model to lose previously learned general knowledge as it adapts to new task-specific data."
+  },
+  {
+    "id": 77,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "Which type of model generates new images by iteratively removing noise from a random starting point?",
+    "options": [
+      "Generative Adversarial Network",
+      "Variational Autoencoder",
+      "Diffusion model",
+      "Convolutional classifier"
+    ],
+    "answer": "Diffusion model",
+    "explanation": "Diffusion models generate images by learning to reverse a noise-adding process, starting from random noise and iteratively denoising to produce coherent images."
+  },
+  {
+    "id": 78,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "When choosing between Claude and Llama models on Amazon Bedrock, which consideration is MOST important?",
+    "options": [
+      "The programming language used to call the API",
+      "The color scheme of the model provider's website",
+      "The alphabetical order of model names",
+      "The model's performance characteristics, licensing terms, and suitability for the specific use case"
+    ],
+    "answer": "The model's performance characteristics, licensing terms, and suitability for the specific use case",
+    "explanation": "Model selection should be based on performance benchmarks, licensing (proprietary vs open), context window size, and alignment with the specific use case requirements."
+  },
+  {
+    "id": 79,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What does a frequency penalty parameter do when generating text with an LLM?",
+    "options": [
+      "It penalizes tokens based on how often they have already appeared, reducing repetition",
+      "It increases the speed of token generation",
+      "It limits the total number of API calls",
+      "It adjusts the model's vocabulary size"
+    ],
+    "answer": "It penalizes tokens based on how often they have already appeared, reducing repetition",
+    "explanation": "Frequency penalty reduces the likelihood of tokens that have already appeared in the output, helping prevent repetitive text generation."
+  },
+  {
+    "id": 80,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "A developer needs to generate structured JSON output from an LLM. Which prompt engineering technique is MOST helpful?",
+    "options": [
+      "Using high temperature for creativity",
+      "Providing a clear output format specification with examples in the prompt",
+      "Reducing the context window size",
+      "Disabling all safety filters"
+    ],
+    "answer": "Providing a clear output format specification with examples in the prompt",
+    "explanation": "Including explicit format specifications and examples of the desired JSON structure in the prompt guides the model to produce correctly formatted structured output."
+  },
+  {
+    "id": 81,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "mcq",
+    "text": "What is the primary advantage of multi-head attention over single-head attention in transformers?",
+    "options": [
+      "It requires less memory",
+      "It eliminates the need for positional encoding",
+      "It allows the model to attend to information from different representation subspaces simultaneously",
+      "It reduces training time"
+    ],
+    "answer": "It allows the model to attend to information from different representation subspaces simultaneously",
+    "explanation": "Multi-head attention runs multiple attention operations in parallel, enabling the model to capture different types of relationships and patterns in different subspaces."
+  },
+  {
+    "id": 82,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "multi-select",
+    "text": "A team is evaluating generative AI model outputs for a text summarization application. Which TWO metrics are commonly used for this evaluation? (Select TWO)",
+    "options": [
+      "ROUGE score for measuring recall of reference n-grams",
+      "Mean Absolute Error for prediction accuracy",
+      "BLEU score for measuring precision of generated n-grams",
+      "R-squared for regression quality",
+      "Silhouette score for clustering"
+    ],
+    "answer": [
+      "ROUGE score for measuring recall of reference n-grams",
+      "BLEU score for measuring precision of generated n-grams"
+    ],
+    "explanation": "ROUGE measures recall of reference content in generated text, while BLEU measures precision of generated n-grams against references. Both are standard for evaluating text generation."
+  },
+  {
+    "id": 83,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "multi-select",
+    "text": "Which TWO strategies can help reduce hallucinations in LLM applications? (Select TWO)",
+    "options": [
+      "Increasing the temperature to maximum",
+      "Implementing Retrieval-Augmented Generation with verified sources",
+      "Training the model on less data",
+      "Adding explicit instructions to only use provided context",
+      "Using larger batch sizes during inference"
+    ],
+    "answer": [
+      "Implementing Retrieval-Augmented Generation with verified sources",
+      "Adding explicit instructions to only use provided context"
+    ],
+    "explanation": "RAG grounds responses in retrieved factual documents, and explicit context-limiting instructions help the model avoid generating unsupported claims."
+  },
+  {
+    "id": 84,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "multi-select",
+    "text": "Which THREE characteristics define a foundation model? (Select THREE)",
+    "options": [
+      "Trained on narrow domain-specific data only",
+      "Pre-trained on broad, diverse datasets at scale",
+      "Can be adapted to multiple downstream tasks",
+      "Requires retraining from scratch for each new application",
+      "Demonstrates emergent capabilities not explicitly trained for",
+      "Limited to text-only modalities"
+    ],
+    "answer": [
+      "Pre-trained on broad, diverse datasets at scale",
+      "Can be adapted to multiple downstream tasks",
+      "Demonstrates emergent capabilities not explicitly trained for"
+    ],
+    "explanation": "Foundation models are characterized by broad pre-training, adaptability to diverse tasks, and emergent capabilities that arise from their scale and training diversity."
+  },
+  {
+    "id": 85,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "multi-select",
+    "text": "A developer is configuring inference parameters for an Amazon Bedrock model call. Which TWO parameters directly control the diversity and randomness of generated outputs? (Select TWO)",
+    "options": [
+      "Max tokens",
+      "Temperature",
+      "Stop sequences",
+      "Top-p (nucleus sampling)",
+      "Model ID"
+    ],
+    "answer": [
+      "Temperature",
+      "Top-p (nucleus sampling)"
+    ],
+    "explanation": "Temperature and top-p both control output randomness/diversity. Temperature scales the probability distribution, while top-p limits the cumulative probability mass considered."
+  },
+  {
+    "id": 86,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "multi-select",
+    "text": "Which TWO statements about prompt engineering are correct? (Select TWO)",
+    "options": [
+      "Few-shot prompting always outperforms fine-tuning",
+      "Zero-shot prompting provides the model with task instructions but no examples",
+      "Chain-of-thought prompting eliminates all model errors",
+      "Few-shot prompting includes input-output examples to demonstrate the desired task",
+      "Prompt engineering requires modifying model weights"
+    ],
+    "answer": [
+      "Zero-shot prompting provides the model with task instructions but no examples",
+      "Few-shot prompting includes input-output examples to demonstrate the desired task"
+    ],
+    "explanation": "Zero-shot gives only instructions without examples, while few-shot includes demonstration examples. Neither requires weight modification or guarantees perfect results."
+  },
+  {
+    "id": 87,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "multi-select",
+    "text": "Which TWO factors should be considered when selecting a foundation model for a production application? (Select TWO)",
+    "options": [
+      "The model's context window size relative to the use case requirements",
+      "The founder's last name of the model provider",
+      "The model's latency and cost characteristics for the expected workload",
+      "The number of vowels in the model's name",
+      "The model release date being the most recent possible"
+    ],
+    "answer": [
+      "The model's context window size relative to the use case requirements",
+      "The model's latency and cost characteristics for the expected workload"
+    ],
+    "explanation": "Context window determines what fits in a single request, and latency/cost affect operational feasibility. Both are critical practical considerations for production deployment."
+  },
+  {
+    "id": 88,
+    "domain": "Domain 2: Fundamentals of Generative AI",
+    "type": "multi-select",
+    "text": "Which TWO types of generative models can create synthetic images? (Select TWO)",
+    "options": [
+      "Logistic regression classifiers",
+      "Generative Adversarial Networks (GANs)",
+      "Decision tree ensembles",
+      "Diffusion models",
+      "K-nearest neighbors"
+    ],
+    "answer": [
+      "Generative Adversarial Networks (GANs)",
+      "Diffusion models"
+    ],
+    "explanation": "GANs use adversarial training between generator and discriminator networks, and diffusion models use iterative denoising, both capable of generating realistic synthetic images."
+  },
+  {
+    "id": 89,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company wants to build a chatbot that can answer questions using their internal documentation. Which Amazon Bedrock feature enables this by connecting foundation models to enterprise data sources?",
+    "options": [
+      "Bedrock Model Evaluation",
+      "Bedrock Guardrails",
+      "Bedrock Custom Models",
+      "Bedrock Knowledge Bases"
+    ],
+    "answer": "Bedrock Knowledge Bases",
+    "explanation": "Bedrock Knowledge Bases enables RAG by connecting foundation models to enterprise data sources, allowing the model to retrieve and reference relevant documents when answering questions."
+  },
+  {
+    "id": 90,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "In a Retrieval-Augmented Generation (RAG) architecture, what is the role of the vector database?",
+    "options": [
+      "To store document embeddings and enable semantic similarity search",
+      "To train the foundation model from scratch",
+      "To host the LLM inference endpoint",
+      "To manage user authentication tokens"
+    ],
+    "answer": "To store document embeddings and enable semantic similarity search",
+    "explanation": "Vector databases store document embeddings and support similarity search, allowing the RAG system to find relevant documents based on semantic proximity to the query."
+  },
+  {
+    "id": 91,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A development team wants to create an AI agent that can perform multi-step tasks like booking travel by calling APIs and making decisions. Which Bedrock feature supports this?",
+    "options": [
+      "Bedrock Knowledge Bases",
+      "Bedrock Agents",
+      "Bedrock Guardrails",
+      "Bedrock Model Access"
+    ],
+    "answer": "Bedrock Agents",
+    "explanation": "Bedrock Agents can orchestrate multi-step tasks by breaking down user requests, calling APIs through action groups, and making decisions to accomplish complex goals."
+  },
+  {
+    "id": 92,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "Which embedding model characteristic is MOST important for effective semantic search in a RAG system?",
+    "options": [
+      "The model's ability to generate creative text",
+      "The model's text generation speed",
+      "The quality of vector representations in capturing semantic similarity",
+      "The model's ability to produce long-form content"
+    ],
+    "answer": "The quality of vector representations in capturing semantic similarity",
+    "explanation": "Effective RAG depends on embeddings that accurately capture semantic meaning so that relevant documents can be retrieved based on query similarity."
+  },
+  {
+    "id": 93,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company is using Amazon Bedrock to summarize long legal documents. The documents exceed the model's context window. Which approach BEST addresses this limitation?",
+    "options": [
+      "Using a model with unlimited context",
+      "Converting documents to images first",
+      "Ignoring the excess content beyond the context window",
+      "Chunking documents and using iterative summarization (map-reduce pattern)"
+    ],
+    "answer": "Chunking documents and using iterative summarization (map-reduce pattern)",
+    "explanation": "The map-reduce pattern chunks long documents, summarizes each chunk independently, then combines summaries, effectively handling documents that exceed the context window."
+  },
+  {
+    "id": 94,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "What is the primary purpose of Amazon Bedrock Guardrails?",
+    "options": [
+      "To define content filtering policies that block harmful or off-topic model responses",
+      "To manage IAM permissions for Bedrock users",
+      "To monitor model training metrics",
+      "To encrypt data at rest in S3"
+    ],
+    "answer": "To define content filtering policies that block harmful or off-topic model responses",
+    "explanation": "Bedrock Guardrails allow organizations to configure content filters, denied topics, and word filters to prevent models from generating harmful, inappropriate, or off-topic content."
+  },
+  {
+    "id": 95,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A software developer wants AI assistance to generate, explain, and debug code directly in their IDE. Which AWS service is designed for this use case?",
+    "options": [
+      "Amazon SageMaker Canvas",
+      "Amazon Q Developer",
+      "Amazon Comprehend",
+      "Amazon Textract"
+    ],
+    "answer": "Amazon Q Developer",
+    "explanation": "Amazon Q Developer (formerly CodeWhisperer) provides AI-powered code generation, explanation, debugging, and transformation capabilities directly within the developer's IDE."
+  },
+  {
+    "id": 96,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "When implementing RAG, what is the optimal strategy for chunking documents before creating embeddings?",
+    "options": [
+      "Always use fixed-size chunks of exactly 100 characters",
+      "Put the entire document in a single chunk regardless of size",
+      "Chunk by semantic units (paragraphs, sections) with appropriate overlap between chunks",
+      "Randomly split documents at arbitrary positions"
+    ],
+    "answer": "Chunk by semantic units (paragraphs, sections) with appropriate overlap between chunks",
+    "explanation": "Semantic chunking preserves context within chunks, and overlap ensures information at chunk boundaries isn't lost, improving retrieval quality."
+  },
+  {
+    "id": 97,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company wants to customize a foundation model on Bedrock using their proprietary dataset to improve domain-specific performance. Which approach should they use?",
+    "options": [
+      "Creating a new model architecture from scratch",
+      "Changing the model's tokenizer vocabulary",
+      "Modifying the model's source code directly",
+      "Fine-tuning the model through Amazon Bedrock Custom Models"
+    ],
+    "answer": "Fine-tuning the model through Amazon Bedrock Custom Models",
+    "explanation": "Bedrock Custom Models allows fine-tuning foundation models with proprietary data, adapting the model to specific domains without building from scratch."
+  },
+  {
+    "id": 98,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "Which AWS service allows business users to experiment with generative AI through a no-code web interface for building AI-powered applications?",
+    "options": [
+      "PartyRock",
+      "Amazon SageMaker Studio",
+      "AWS CloudFormation",
+      "Amazon EMR"
+    ],
+    "answer": "PartyRock",
+    "explanation": "PartyRock is a no-code, shareable generative AI app-building playground powered by Amazon Bedrock that allows anyone to experiment with foundation models."
+  },
+  {
+    "id": 99,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "In a RAG architecture, what happens during the retrieval step when a user submits a query?",
+    "options": [
+      "The LLM generates a response without any external data",
+      "The query is converted to an embedding and used to find semantically similar documents in the vector store",
+      "The model is fine-tuned on the query",
+      "A new model is trained specifically for the query"
+    ],
+    "answer": "The query is converted to an embedding and used to find semantically similar documents in the vector store",
+    "explanation": "During retrieval, the user's query is embedded into a vector and compared against stored document embeddings to find the most semantically relevant passages."
+  },
+  {
+    "id": 100,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A team wants to evaluate different foundation models on Bedrock to determine which performs best for their summarization task. Which Bedrock feature should they use?",
+    "options": [
+      "Bedrock Agents",
+      "Bedrock Knowledge Bases",
+      "Bedrock Model Evaluation",
+      "Bedrock Provisioned Throughput"
+    ],
+    "answer": "Bedrock Model Evaluation",
+    "explanation": "Bedrock Model Evaluation provides tools to compare model performance across tasks using automatic metrics or human evaluation, helping teams select the best model."
+  },
+  {
+    "id": 101,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company is building a multi-modal application that needs to analyze images and generate text descriptions. Which capability of foundation models on Bedrock supports this?",
+    "options": [
+      "Text-only generation models",
+      "Tabular data processing models",
+      "Audio transcription models",
+      "Multi-modal models that accept both image and text inputs"
+    ],
+    "answer": "Multi-modal models that accept both image and text inputs",
+    "explanation": "Multi-modal foundation models like Claude can process both images and text, enabling applications that analyze visual content and generate textual descriptions."
+  },
+  {
+    "id": 102,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "What is the benefit of using streaming responses when calling foundation models through Amazon Bedrock?",
+    "options": [
+      "It allows the application to display partial responses as they are generated, reducing perceived latency",
+      "It reduces the total token cost",
+      "It increases the model's accuracy",
+      "It eliminates the need for error handling"
+    ],
+    "answer": "It allows the application to display partial responses as they are generated, reducing perceived latency",
+    "explanation": "Streaming delivers tokens as they're generated rather than waiting for the full response, providing a better user experience with lower perceived latency."
+  },
+  {
+    "id": 103,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A customer service team wants to automatically extract key information from insurance claim forms that contain both printed and handwritten text. Which AWS AI service is BEST suited for this?",
+    "options": [
+      "Amazon Comprehend",
+      "Amazon Textract",
+      "Amazon Translate",
+      "Amazon Polly"
+    ],
+    "answer": "Amazon Textract",
+    "explanation": "Amazon Textract uses ML to extract text, forms, and tables from scanned documents, including handwritten content, making it ideal for processing insurance claim forms."
+  },
+  {
+    "id": 104,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "When using Amazon Bedrock Agents, what are 'action groups' used for?",
+    "options": [
+      "Grouping users by permission level",
+      "Categorizing model responses by topic",
+      "Defining the APIs and functions that an agent can invoke to accomplish tasks",
+      "Managing billing across teams"
+    ],
+    "answer": "Defining the APIs and functions that an agent can invoke to accomplish tasks",
+    "explanation": "Action groups define the set of APIs and Lambda functions that a Bedrock Agent can call to interact with external systems and complete multi-step tasks."
+  },
+  {
+    "id": 105,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company wants to maintain conversation context across multiple turns in their chatbot application. Which technique should they implement?",
+    "options": [
+      "Retraining the model after each conversation",
+      "Storing all conversations in a relational database without any retrieval mechanism",
+      "Creating a new model instance for each turn",
+      "Implementing conversation memory that passes relevant history with each new request"
+    ],
+    "answer": "Implementing conversation memory that passes relevant history with each new request",
+    "explanation": "Conversation memory maintains context by including relevant previous exchanges in the prompt, allowing the model to reference earlier parts of the conversation."
+  },
+  {
+    "id": 106,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "Which Amazon AI service provides real-time personalized product and content recommendations based on user behavior?",
+    "options": [
+      "Amazon Personalize",
+      "Amazon Forecast",
+      "Amazon Kendra",
+      "Amazon Comprehend"
+    ],
+    "answer": "Amazon Personalize",
+    "explanation": "Amazon Personalize uses ML to deliver real-time personalized recommendations for products, content, and search results based on user interaction data."
+  },
+  {
+    "id": 107,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A data analyst wants to query their company's data using natural language instead of SQL. Which AWS service enables conversational analytics powered by generative AI?",
+    "options": [
+      "Amazon Athena",
+      "Amazon Q in QuickSight",
+      "Amazon Redshift Spectrum",
+      "AWS Glue DataBrew"
+    ],
+    "answer": "Amazon Q in QuickSight",
+    "explanation": "Amazon Q in QuickSight allows users to ask questions in natural language and get answers as visualizations and insights from their business data."
+  },
+  {
+    "id": 108,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "What is the purpose of prompt templates in production LLM applications?",
+    "options": [
+      "To encrypt prompts before sending to the model",
+      "To compress prompts to save tokens",
+      "To provide reusable, parameterized prompt structures that ensure consistency across requests",
+      "To translate prompts between languages"
+    ],
+    "answer": "To provide reusable, parameterized prompt structures that ensure consistency across requests",
+    "explanation": "Prompt templates define standardized formats with variable placeholders, ensuring consistent prompt construction across different inputs while maintaining quality."
+  },
+  {
+    "id": 109,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A healthcare company wants to use generative AI to help clinicians search through medical literature. They need the system to cite its sources. Which architecture pattern BEST supports this requirement?",
+    "options": [
+      "Direct LLM generation without external data",
+      "Using a general chatbot without grounding",
+      "Fine-tuning on all medical literature",
+      "RAG with source attribution from retrieved documents"
+    ],
+    "answer": "RAG with source attribution from retrieved documents",
+    "explanation": "RAG retrieves specific documents used to generate answers, enabling the system to cite sources and provide verifiable references for clinical users."
+  },
+  {
+    "id": 110,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "Which AWS service uses deep learning to provide intelligent enterprise search across multiple data sources?",
+    "options": [
+      "Amazon Kendra",
+      "Amazon Elasticsearch",
+      "Amazon CloudSearch",
+      "Amazon S3 Select"
+    ],
+    "answer": "Amazon Kendra",
+    "explanation": "Amazon Kendra is an intelligent search service powered by ML that provides accurate answers from enterprise data sources using natural language queries."
+  },
+  {
+    "id": 111,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company wants to use Amazon Bedrock but needs guaranteed throughput for their production workload. Which pricing option should they choose?",
+    "options": [
+      "On-demand pricing with no commitments",
+      "Provisioned Throughput with reserved model units",
+      "Free tier access",
+      "Spot instance pricing"
+    ],
+    "answer": "Provisioned Throughput with reserved model units",
+    "explanation": "Provisioned Throughput reserves dedicated model capacity, providing consistent performance and guaranteed throughput for production workloads on Bedrock."
+  },
+  {
+    "id": 112,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "In a RAG system, what is the primary purpose of the 'augmentation' step?",
+    "options": [
+      "Training the model on new data",
+      "Adding random noise to improve diversity",
+      "Combining retrieved context with the user's query before sending to the LLM for generation",
+      "Compressing the model for faster inference"
+    ],
+    "answer": "Combining retrieved context with the user's query before sending to the LLM for generation",
+    "explanation": "The augmentation step combines retrieved relevant documents with the original query into a prompt, providing the LLM with context to generate grounded responses."
+  },
+  {
+    "id": 113,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company wants to build a voice-enabled AI assistant that can understand spoken questions and respond with speech. Which combination of AWS services would support this?",
+    "options": [
+      "Amazon Rekognition and Amazon Textract",
+      "AWS IoT Core and Amazon Kinesis",
+      "Amazon Translate and Amazon Comprehend",
+      "Amazon Transcribe for speech-to-text and Amazon Polly for text-to-speech, with an LLM for processing"
+    ],
+    "answer": "Amazon Transcribe for speech-to-text and Amazon Polly for text-to-speech, with an LLM for processing",
+    "explanation": "Amazon Transcribe converts speech to text for the LLM to process, and Amazon Polly converts the text response back to natural-sounding speech."
+  },
+  {
+    "id": 114,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "What is the key advantage of using Amazon Bedrock Knowledge Bases compared to building a custom RAG pipeline from scratch?",
+    "options": [
+      "It is a fully managed service that handles document ingestion, chunking, embedding, and vector storage automatically",
+      "It provides unlimited free API calls",
+      "It only works with Amazon Titan models",
+      "It eliminates the need for any data source"
+    ],
+    "answer": "It is a fully managed service that handles document ingestion, chunking, embedding, and vector storage automatically",
+    "explanation": "Bedrock Knowledge Bases manages the full RAG pipeline including ingestion, chunking, embedding creation, and vector database management, reducing implementation complexity."
+  },
+  {
+    "id": 115,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "multi-select",
+    "text": "A company is implementing a RAG solution using Amazon Bedrock. Which TWO components are essential parts of the RAG architecture? (Select TWO)",
+    "options": [
+      "A model training cluster",
+      "A vector database for storing document embeddings",
+      "A reward model for reinforcement learning",
+      "An embedding model for converting text to vectors",
+      "A GAN for generating synthetic data"
+    ],
+    "answer": [
+      "A vector database for storing document embeddings",
+      "An embedding model for converting text to vectors"
+    ],
+    "explanation": "RAG requires an embedding model to convert documents/queries into vectors and a vector database to store and search these embeddings for semantic retrieval."
+  },
+  {
+    "id": 116,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "multi-select",
+    "text": "Which TWO capabilities does Amazon Bedrock Guardrails provide? (Select TWO)",
+    "options": [
+      "Automatic model training on new data",
+      "Content filtering to block harmful or inappropriate responses",
+      "Custom model architecture design",
+      "Denied topic detection to prevent responses on specified subjects",
+      "Real-time model weight updates"
+    ],
+    "answer": [
+      "Content filtering to block harmful or inappropriate responses",
+      "Denied topic detection to prevent responses on specified subjects"
+    ],
+    "explanation": "Bedrock Guardrails provides content filtering (blocking harmful content by category) and denied topics (preventing responses on organization-specified restricted subjects)."
+  },
+  {
+    "id": 117,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A financial services company needs to analyze earnings call transcripts to extract sentiment and key topics. Which combination provides the BEST solution?",
+    "options": [
+      "Amazon Rekognition for image analysis",
+      "Amazon Comprehend for entity recognition and sentiment analysis combined with an LLM for summarization",
+      "Amazon Polly for text-to-speech conversion",
+      "AWS Step Functions for workflow orchestration"
+    ],
+    "answer": "Amazon Comprehend for entity recognition and sentiment analysis combined with an LLM for summarization",
+    "explanation": "Amazon Comprehend extracts entities and sentiment from text, and when combined with an LLM, can provide comprehensive analysis and summarization of earnings transcripts."
+  },
+  {
+    "id": 118,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company uses Amazon Bedrock and wants to track which model invocations produced specific outputs for audit purposes. Which AWS service helps with this logging?",
+    "options": [
+      "AWS Config rules",
+      "Amazon S3 lifecycle policies",
+      "Amazon CloudWatch Logs with Bedrock model invocation logging",
+      "Amazon Inspector"
+    ],
+    "answer": "Amazon CloudWatch Logs with Bedrock model invocation logging",
+    "explanation": "Bedrock model invocation logging sends input/output data and metadata to CloudWatch Logs or S3, enabling auditing of model interactions."
+  },
+  {
+    "id": 119,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "When using LangChain with Amazon Bedrock, what is the primary benefit of using chains?",
+    "options": [
+      "They encrypt all data in transit",
+      "They eliminate the need for prompt engineering",
+      "They reduce model token costs",
+      "They compose multiple LLM calls and tools into a single coherent workflow"
+    ],
+    "answer": "They compose multiple LLM calls and tools into a single coherent workflow",
+    "explanation": "LangChain chains allow developers to compose sequences of LLM calls, tools, and processing steps into structured workflows for complex applications."
+  },
+  {
+    "id": 120,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A retail company wants to automatically translate product descriptions into 20 languages while preserving brand tone. Which approach is MOST effective?",
+    "options": [
+      "Using Amazon Translate with custom terminology and post-editing by an LLM for tone consistency",
+      "Hiring manual translators for all 20 languages",
+      "Building a translation model from scratch",
+      "Using a dictionary-based word replacement system"
+    ],
+    "answer": "Using Amazon Translate with custom terminology and post-editing by an LLM for tone consistency",
+    "explanation": "Amazon Translate handles scalable translation with custom terminology preservation, and an LLM can refine outputs to maintain consistent brand tone."
+  },
+  {
+    "id": 121,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "What is the primary difference between Amazon Q Business and Amazon Q Developer?",
+    "options": [
+      "Q Business is more expensive than Q Developer",
+      "Q Business is for generative AI on enterprise data while Q Developer is for software development assistance",
+      "Q Developer works only with Python while Q Business works with all languages",
+      "Q Business requires SageMaker while Q Developer does not"
+    ],
+    "answer": "Q Business is for generative AI on enterprise data while Q Developer is for software development assistance",
+    "explanation": "Amazon Q Business provides AI assistance over enterprise data sources for business users, while Q Developer focuses on code generation, debugging, and software development tasks."
+  },
+  {
+    "id": 122,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company is building a document processing pipeline that needs to extract tables and key-value pairs from scanned PDF invoices. Which service handles this BEST?",
+    "options": [
+      "Amazon Comprehend",
+      "Amazon Translate",
+      "Amazon Textract with its Forms and Tables features",
+      "Amazon Kendra"
+    ],
+    "answer": "Amazon Textract with its Forms and Tables features",
+    "explanation": "Amazon Textract specializes in extracting structured data including tables, forms (key-value pairs), and text from scanned documents like PDF invoices."
+  },
+  {
+    "id": 123,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "In the context of Amazon Bedrock model customization, what is Continued Pre-Training used for?",
+    "options": [
+      "Teaching the model to follow specific instruction formats",
+      "Adding new languages to the model",
+      "Compressing the model for edge deployment",
+      "Exposing the model to domain-specific unlabeled data to improve its domain knowledge"
+    ],
+    "answer": "Exposing the model to domain-specific unlabeled data to improve its domain knowledge",
+    "explanation": "Continued Pre-Training exposes a foundation model to additional unlabeled domain-specific text, helping it learn domain terminology and patterns without explicit task instructions."
+  },
+  {
+    "id": 124,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A media company wants to automatically generate alt-text descriptions for images on their website to improve accessibility. Which approach using AWS services is MOST appropriate?",
+    "options": [
+      "Using a multi-modal foundation model on Bedrock to generate descriptive image captions",
+      "Using Amazon Rekognition labels only",
+      "Using Amazon Translate to convert existing captions",
+      "Using Amazon Polly to read image metadata"
+    ],
+    "answer": "Using a multi-modal foundation model on Bedrock to generate descriptive image captions",
+    "explanation": "Multi-modal models on Bedrock can analyze images and generate detailed, natural-language descriptions suitable for alt-text accessibility requirements."
+  },
+  {
+    "id": 125,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "Which vector database option is natively integrated with Amazon Bedrock Knowledge Bases for storing embeddings?",
+    "options": [
+      "MySQL on RDS",
+      "Amazon OpenSearch Serverless with vector engine",
+      "Amazon DynamoDB",
+      "Amazon ElastiCache"
+    ],
+    "answer": "Amazon OpenSearch Serverless with vector engine",
+    "explanation": "Amazon OpenSearch Serverless with vector engine is natively integrated with Bedrock Knowledge Bases for storing and searching document embeddings."
+  },
+  {
+    "id": 126,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company wants to build a customer service bot that can look up order status, process returns, and answer product questions using their documentation. Which Bedrock architecture should they use?",
+    "options": [
+      "A simple model invocation with no external tools",
+      "Only Bedrock Knowledge Bases without any API integration",
+      "Bedrock Agents with action groups for order/returns APIs and Knowledge Bases for product documentation",
+      "Only Bedrock Guardrails for content filtering"
+    ],
+    "answer": "Bedrock Agents with action groups for order/returns APIs and Knowledge Bases for product documentation",
+    "explanation": "Bedrock Agents combine action groups (for calling business APIs) with Knowledge Bases (for documentation retrieval), enabling both data retrieval and action execution."
+  },
+  {
+    "id": 127,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "When using inference parameters on Amazon Bedrock, what effect does setting stop_sequences have?",
+    "options": [
+      "It stops the model from being invoked entirely",
+      "It pauses the model between token generation steps",
+      "It limits the number of API calls per minute",
+      "It defines specific strings that cause the model to stop generating further tokens when encountered"
+    ],
+    "answer": "It defines specific strings that cause the model to stop generating further tokens when encountered",
+    "explanation": "Stop sequences are strings that, when generated by the model, signal it to stop producing further output, giving developers control over response boundaries."
+  },
+  {
+    "id": 128,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A legal team wants to use AI to review contracts and identify non-standard clauses compared to their templates. Which approach is MOST effective?",
+    "options": [
+      "Using an LLM with few-shot prompting containing examples of standard vs non-standard clauses, combined with RAG over template documents",
+      "Using Amazon Rekognition for document scanning",
+      "Using Amazon Forecast for predicting contract outcomes",
+      "Using Amazon Personalize for recommendation"
+    ],
+    "answer": "Using an LLM with few-shot prompting containing examples of standard vs non-standard clauses, combined with RAG over template documents",
+    "explanation": "Few-shot prompting shows the model what to look for, and RAG provides access to template clauses for comparison, enabling effective contract review."
+  },
+  {
+    "id": 129,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "What is Amazon Bedrock's model evaluation capability primarily used for?",
+    "options": [
+      "Training new foundation models from scratch",
+      "Comparing the performance of different foundation models on specific tasks using automatic or human evaluation",
+      "Managing model access permissions",
+      "Encrypting model inputs and outputs"
+    ],
+    "answer": "Comparing the performance of different foundation models on specific tasks using automatic or human evaluation",
+    "explanation": "Bedrock Model Evaluation allows users to benchmark and compare models using automated metrics or human reviewers to select the best model for their use case."
+  },
+  {
+    "id": 130,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company needs to detect and redact personally identifiable information (PII) from customer support transcripts before processing them with an LLM. Which AWS service can help?",
+    "options": [
+      "Amazon Macie for S3 bucket analysis",
+      "Amazon GuardDuty for threat detection",
+      "Amazon Comprehend PII detection and redaction",
+      "AWS Config for compliance"
+    ],
+    "answer": "Amazon Comprehend PII detection and redaction",
+    "explanation": "Amazon Comprehend can detect and redact PII entities like names, addresses, and account numbers from text, enabling safe processing of sensitive documents."
+  },
+  {
+    "id": 131,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "When implementing conversation memory in a chatbot, which approach BEST handles long conversations that exceed the context window?",
+    "options": [
+      "Discarding all previous conversation history",
+      "Switching to a different model mid-conversation",
+      "Increasing the model size to handle more tokens",
+      "Using summarization to condense earlier conversation turns while keeping recent exchanges in full"
+    ],
+    "answer": "Using summarization to condense earlier conversation turns while keeping recent exchanges in full",
+    "explanation": "Summarizing older turns preserves important context while keeping within token limits, and maintaining recent exchanges in full ensures immediate conversational coherence."
+  },
+  {
+    "id": 132,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company wants to forecast demand for their products over the next 30 days using historical sales data. Which AWS AI service is purpose-built for this?",
+    "options": [
+      "Amazon Forecast",
+      "Amazon Bedrock",
+      "Amazon Comprehend",
+      "Amazon Rekognition"
+    ],
+    "answer": "Amazon Forecast",
+    "explanation": "Amazon Forecast is a time-series forecasting service that uses ML to generate accurate demand forecasts from historical data without requiring ML expertise."
+  },
+  {
+    "id": 133,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "Which feature of Amazon Bedrock allows you to use a foundation model without any data leaving your AWS account's VPC?",
+    "options": [
+      "Bedrock Guardrails",
+      "AWS PrivateLink for Amazon Bedrock",
+      "Bedrock Knowledge Bases",
+      "Bedrock Model Catalog"
+    ],
+    "answer": "AWS PrivateLink for Amazon Bedrock",
+    "explanation": "AWS PrivateLink creates a private connection between your VPC and Amazon Bedrock, ensuring that API traffic never traverses the public internet."
+  },
+  {
+    "id": 134,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A marketing team wants to generate personalized email content for different customer segments using an LLM. Which approach ensures consistent brand voice while allowing personalization?",
+    "options": [
+      "Generating emails without any guidelines",
+      "Fine-tuning a separate model for each customer segment",
+      "Using system prompts with brand voice guidelines combined with prompt templates that include customer-specific variables",
+      "Manually writing each email and using AI only for spell-checking"
+    ],
+    "answer": "Using system prompts with brand voice guidelines combined with prompt templates that include customer-specific variables",
+    "explanation": "System prompts establish consistent brand voice while parameterized templates allow dynamic insertion of customer-specific content for personalization."
+  },
+  {
+    "id": 135,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "What is the main advantage of using Amazon Lex to build conversational interfaces compared to building a custom NLU solution?",
+    "options": [
+      "Amazon Lex is always free of charge",
+      "Amazon Lex eliminates the need for any design",
+      "Amazon Lex only works with voice inputs",
+      "Amazon Lex provides pre-built NLU capabilities with intent recognition and slot filling, reducing development time"
+    ],
+    "answer": "Amazon Lex provides pre-built NLU capabilities with intent recognition and slot filling, reducing development time",
+    "explanation": "Amazon Lex provides managed NLU with intent recognition, entity extraction (slot filling), and dialog management, significantly reducing development effort."
+  },
+  {
+    "id": 136,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A security operations team wants to use generative AI to automatically create incident response playbooks from their historical incident data. Which approach is MOST appropriate?",
+    "options": [
+      "Fine-tuning or prompting an LLM with historical incident data and response patterns using RAG",
+      "Using Amazon Rekognition for incident image analysis",
+      "Using Amazon Forecast to predict future incidents",
+      "Using Amazon Translate to convert playbooks between languages"
+    ],
+    "answer": "Fine-tuning or prompting an LLM with historical incident data and response patterns using RAG",
+    "explanation": "RAG with historical incident data allows the LLM to reference past incidents and response patterns when generating new playbooks, ensuring relevance and accuracy."
+  },
+  {
+    "id": 137,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "multi-select",
+    "text": "A company is building a generative AI application using Amazon Bedrock. Which TWO approaches can be used to customize a foundation model's behavior for their specific domain? (Select TWO)",
+    "options": [
+      "Modifying the model's source code on GitHub",
+      "Fine-tuning with labeled domain-specific training data",
+      "Changing the model's underlying hardware",
+      "Continued Pre-Training with unlabeled domain text",
+      "Rewriting the transformer architecture"
+    ],
+    "answer": [
+      "Fine-tuning with labeled domain-specific training data",
+      "Continued Pre-Training with unlabeled domain text"
+    ],
+    "explanation": "Fine-tuning adapts models using labeled examples for specific tasks, while Continued Pre-Training exposes models to domain text, both customizing behavior without code modification."
+  },
+  {
+    "id": 138,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "multi-select",
+    "text": "Which TWO AWS services provide pre-built natural language processing capabilities without requiring custom model training? (Select TWO)",
+    "options": [
+      "Amazon SageMaker Training",
+      "Amazon Comprehend for sentiment and entity analysis",
+      "AWS CloudFormation for infrastructure",
+      "Amazon Translate for language translation",
+      "Amazon EC2 for compute instances"
+    ],
+    "answer": [
+      "Amazon Comprehend for sentiment and entity analysis",
+      "Amazon Translate for language translation"
+    ],
+    "explanation": "Amazon Comprehend provides NLP capabilities like sentiment analysis and entity recognition, and Amazon Translate offers neural machine translation, both as managed AI services."
+  },
+  {
+    "id": 139,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "multi-select",
+    "text": "A team is implementing Amazon Bedrock Agents for an e-commerce application. Which TWO elements must be defined for the agent to perform actions? (Select TWO)",
+    "options": [
+      "A custom neural network architecture",
+      "Action groups that specify available APIs and their schemas",
+      "IAM roles that aren't associated with any service",
+      "Instructions that describe the agent's purpose and behavior",
+      "A separate VPC for each action"
+    ],
+    "answer": [
+      "Action groups that specify available APIs and their schemas",
+      "Instructions that describe the agent's purpose and behavior"
+    ],
+    "explanation": "Bedrock Agents require action groups (defining callable APIs) and instructions (guiding the agent's behavior and decision-making) to function effectively."
+  },
+  {
+    "id": 140,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "multi-select",
+    "text": "Which THREE AWS AI services can be used for computer vision tasks? (Select THREE)",
+    "options": [
+      "Amazon Rekognition for image and video analysis",
+      "Amazon Textract for document text extraction",
+      "Amazon Comprehend for text analytics",
+      "Amazon Polly for speech synthesis",
+      "A multi-modal model on Bedrock for image understanding",
+      "Amazon Translate for language conversion"
+    ],
+    "answer": [
+      "Amazon Rekognition for image and video analysis",
+      "Amazon Textract for document text extraction",
+      "A multi-modal model on Bedrock for image understanding"
+    ],
+    "explanation": "Rekognition analyzes images/videos, Textract extracts text from document images, and multi-modal Bedrock models understand image content - all computer vision tasks."
+  },
+  {
+    "id": 141,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "multi-select",
+    "text": "A company is designing a RAG system for their knowledge base. Which TWO factors MOST impact retrieval quality? (Select TWO)",
+    "options": [
+      "The color scheme of the user interface",
+      "The chunking strategy used when splitting documents",
+      "The programming language of the backend",
+      "The quality and relevance of the embedding model used",
+      "The number of CPU cores in the server"
+    ],
+    "answer": [
+      "The chunking strategy used when splitting documents",
+      "The quality and relevance of the embedding model used"
+    ],
+    "explanation": "Effective chunking preserves semantic coherence, and high-quality embeddings accurately capture meaning - both directly determining whether relevant content is retrieved."
+  },
+  {
+    "id": 142,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company wants to build an internal knowledge assistant that answers employee questions about company policies stored in SharePoint, Confluence, and S3. Which service provides the SIMPLEST solution?",
+    "options": [
+      "Building a custom search engine from scratch",
+      "Amazon Q Business connected to enterprise data sources",
+      "Amazon Mechanical Turk for human answers",
+      "A static FAQ page"
+    ],
+    "answer": "Amazon Q Business connected to enterprise data sources",
+    "explanation": "Amazon Q Business connects to enterprise data sources like SharePoint, Confluence, and S3 to provide an AI assistant that answers questions using organizational knowledge."
+  },
+  {
+    "id": 143,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "What is the primary use case for Amazon Bedrock's batch inference feature?",
+    "options": [
+      "Real-time chatbot interactions requiring sub-second latency",
+      "Training new foundation models",
+      "Processing large volumes of prompts offline at lower cost when immediate responses aren't needed",
+      "Managing model access permissions"
+    ],
+    "answer": "Processing large volumes of prompts offline at lower cost when immediate responses aren't needed",
+    "explanation": "Batch inference processes large sets of prompts asynchronously at reduced cost, ideal for bulk content generation, classification, or analysis tasks that don't need real-time responses."
+  },
+  {
+    "id": 144,
+    "domain": "Domain 3: Applications of Foundation Models",
+    "type": "mcq",
+    "text": "A company notices their RAG system sometimes retrieves irrelevant documents that confuse the LLM's responses. Which technique can improve retrieval precision?",
+    "options": [
+      "Removing the vector database entirely",
+      "Using random document selection",
+      "Increasing the LLM's temperature",
+      "Implementing re-ranking of retrieved results using a cross-encoder model before passing to the LLM"
+    ],
+    "answer": "Implementing re-ranking of retrieved results using a cross-encoder model before passing to the LLM",
+    "explanation": "Re-ranking with a cross-encoder scores retrieved documents more accurately against the query, filtering out irrelevant results before they reach the generation model."
+  },
+  {
+    "id": 145,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A company discovers that their hiring AI model consistently rates male candidates higher than female candidates for technical roles. Which responsible AI principle is being violated?",
+    "options": [
+      "Fairness and non-discrimination",
+      "Scalability",
+      "Model compression",
+      "Throughput optimization"
+    ],
+    "answer": "Fairness and non-discrimination",
+    "explanation": "Gender-based discrimination in model predictions violates the fairness principle, which requires AI systems to treat all demographic groups equitably."
+  },
+  {
+    "id": 146,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "Which AWS service provides tools to detect bias in datasets and model predictions, and explain model behavior?",
+    "options": [
+      "Amazon Rekognition",
+      "Amazon SageMaker Clarify",
+      "AWS CloudTrail",
+      "Amazon Inspector"
+    ],
+    "answer": "Amazon SageMaker Clarify",
+    "explanation": "SageMaker Clarify detects potential bias in data and models, and provides feature attribution explanations to help understand model predictions."
+  },
+  {
+    "id": 147,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A healthcare AI system makes treatment recommendations. To support trust and clinical adoption, what should be provided alongside each recommendation?",
+    "options": [
+      "The model's training code",
+      "The hardware specifications of the inference server",
+      "An explanation of which factors most influenced the recommendation",
+      "The names of other patients with similar conditions"
+    ],
+    "answer": "An explanation of which factors most influenced the recommendation",
+    "explanation": "Explainability helps clinicians understand and trust AI recommendations by showing which features drove the decision, supporting informed clinical judgment."
+  },
+  {
+    "id": 148,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "What is the purpose of a model card in responsible AI practices?",
+    "options": [
+      "To provide GPU benchmarks for the model",
+      "To list all API endpoints for the model",
+      "To store the model's encryption keys",
+      "To document a model's intended use, limitations, evaluation results, and ethical considerations"
+    ],
+    "answer": "To document a model's intended use, limitations, evaluation results, and ethical considerations",
+    "explanation": "Model cards are standardized documentation that communicate a model's capabilities, limitations, biases, and appropriate use cases to stakeholders."
+  },
+  {
+    "id": 149,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A financial institution uses AI for loan approvals. Regulators require that applicants receive explanations when denied. Which explainability technique provides feature-level importance for individual predictions?",
+    "options": [
+      "SHAP (SHapley Additive exPlanations)",
+      "K-means clustering",
+      "Principal Component Analysis",
+      "Gradient descent"
+    ],
+    "answer": "SHAP (SHapley Additive exPlanations)",
+    "explanation": "SHAP assigns each feature a contribution value for individual predictions, enabling specific explanations like which factors led to a loan denial."
+  },
+  {
+    "id": 150,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "What does the concept of 'human-in-the-loop' mean in the context of responsible AI?",
+    "options": [
+      "Humans write all the model's code manually",
+      "Humans review, validate, or override AI decisions at critical points in the workflow",
+      "The AI system replaces all human workers",
+      "Humans provide the electrical power for the computing infrastructure"
+    ],
+    "answer": "Humans review, validate, or override AI decisions at critical points in the workflow",
+    "explanation": "Human-in-the-loop ensures human oversight at critical decision points, maintaining accountability and catching errors before they impact people."
+  },
+  {
+    "id": 151,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A company is building a credit scoring model and wants to ensure it does not discriminate based on protected characteristics like race or gender. Which approach helps achieve this?",
+    "options": [
+      "Training on as much data as possible without any analysis",
+      "Using only deep learning instead of traditional ML",
+      "Measuring and mitigating disparate impact across protected groups using bias metrics",
+      "Deploying the model without testing"
+    ],
+    "answer": "Measuring and mitigating disparate impact across protected groups using bias metrics",
+    "explanation": "Bias metrics like disparate impact ratio measure whether the model treats protected groups differently, enabling targeted mitigation before deployment."
+  },
+  {
+    "id": 152,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "Which technique helps protect individual privacy in training data while still allowing the model to learn useful patterns?",
+    "options": [
+      "Publishing all training data publicly",
+      "Storing data without any encryption",
+      "Using the smallest possible dataset",
+      "Differential privacy, which adds controlled noise to data or gradients"
+    ],
+    "answer": "Differential privacy, which adds controlled noise to data or gradients",
+    "explanation": "Differential privacy mathematically guarantees that individual records cannot be identified from the model, adding controlled noise while preserving aggregate patterns."
+  },
+  {
+    "id": 153,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A company wants to ensure their AI system can explain its decisions in terms understandable to non-technical stakeholders. Which concept does this represent?",
+    "options": [
+      "Transparency and interpretability",
+      "Model compression",
+      "Hyperparameter tuning",
+      "Feature selection"
+    ],
+    "answer": "Transparency and interpretability",
+    "explanation": "Transparency requires that AI systems can provide understandable explanations of their behavior and decisions to all stakeholders, including non-technical users."
+  },
+  {
+    "id": 154,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "What is disparate impact in the context of AI fairness?",
+    "options": [
+      "When a model performs better on GPU than CPU",
+      "When a seemingly neutral model disproportionately affects a protected group negatively",
+      "When model training takes longer than expected",
+      "When the model produces different outputs for the same input"
+    ],
+    "answer": "When a seemingly neutral model disproportionately affects a protected group negatively",
+    "explanation": "Disparate impact occurs when a facially neutral practice or model has disproportionately adverse effects on members of a protected group."
+  },
+  {
+    "id": 155,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "Which SageMaker Clarify capability helps identify whether a dataset has representation imbalance across different demographic groups before training?",
+    "options": [
+      "Automatic model architecture search",
+      "Post-deployment performance monitoring",
+      "Pre-training bias metrics analysis",
+      "Feature store management"
+    ],
+    "answer": "Pre-training bias metrics analysis",
+    "explanation": "SageMaker Clarify's pre-training bias analysis examines datasets for representation imbalances and other bias indicators before model training begins."
+  },
+  {
+    "id": 156,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A team is developing an AI system for autonomous decision-making. Which responsible AI practice ensures there is always a designated party responsible for the system's outcomes?",
+    "options": [
+      "Data augmentation",
+      "Containerization",
+      "Batch processing",
+      "Accountability with clear ownership of AI system decisions"
+    ],
+    "answer": "Accountability with clear ownership of AI system decisions",
+    "explanation": "Accountability establishes clear ownership and responsibility for AI system outcomes, ensuring someone is answerable for decisions and their consequences."
+  },
+  {
+    "id": 157,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "What is the primary goal of inclusive design in AI systems?",
+    "options": [
+      "Ensuring AI systems work effectively for diverse users including those with disabilities, different languages, and varied backgrounds",
+      "Maximizing model accuracy on benchmark datasets",
+      "Reducing computational costs",
+      "Minimizing the number of model parameters"
+    ],
+    "answer": "Ensuring AI systems work effectively for diverse users including those with disabilities, different languages, and varied backgrounds",
+    "explanation": "Inclusive design ensures AI systems are accessible and effective for all users regardless of ability, language, culture, or other characteristics."
+  },
+  {
+    "id": 158,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "LIME (Local Interpretable Model-agnostic Explanations) is used in responsible AI for which purpose?",
+    "options": [
+      "Training models faster",
+      "Explaining individual predictions by approximating the model locally with an interpretable model",
+      "Encrypting model weights",
+      "Optimizing hyperparameters"
+    ],
+    "answer": "Explaining individual predictions by approximating the model locally with an interpretable model",
+    "explanation": "LIME explains individual predictions by perturbing inputs and building a simple interpretable model around that prediction point."
+  },
+  {
+    "id": 159,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A company collects user data to train recommendation models. Which data governance practice is MOST important for responsible AI?",
+    "options": [
+      "Collecting as much data as possible without user knowledge",
+      "Selling data to third parties for additional revenue",
+      "Obtaining informed consent, clearly communicating data usage, and providing opt-out mechanisms",
+      "Storing data indefinitely without any access controls"
+    ],
+    "answer": "Obtaining informed consent, clearly communicating data usage, and providing opt-out mechanisms",
+    "explanation": "Responsible data governance requires transparency about data collection and use, informed consent from users, and mechanisms to control their data."
+  },
+  {
+    "id": 160,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "Which approach to AI training allows multiple organizations to collaboratively train a model without sharing their raw data with each other?",
+    "options": [
+      "Transfer learning",
+      "Ensemble learning",
+      "Data augmentation",
+      "Federated learning"
+    ],
+    "answer": "Federated learning",
+    "explanation": "Federated learning trains models across decentralized data sources by sharing model updates rather than raw data, preserving data privacy across organizations."
+  },
+  {
+    "id": 161,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A company wants to assess the potential societal impact of their AI system before deployment. Which responsible AI practice supports this?",
+    "options": [
+      "Conducting an AI impact assessment that evaluates risks to affected communities",
+      "A/B testing for UI design",
+      "Optimizing for lowest latency",
+      "Using the largest available model"
+    ],
+    "answer": "Conducting an AI impact assessment that evaluates risks to affected communities",
+    "explanation": "AI impact assessments systematically evaluate potential harms, benefits, and risks of AI systems to affected individuals and communities before deployment."
+  },
+  {
+    "id": 162,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "When a generative AI model produces biased content that stereotypes certain groups, which responsible AI principle has been violated?",
+    "options": [
+      "Cost optimization",
+      "Fairness and the avoidance of harmful stereotypes",
+      "Infrastructure scaling",
+      "Network latency reduction"
+    ],
+    "answer": "Fairness and the avoidance of harmful stereotypes",
+    "explanation": "Generating content with harmful stereotypes violates fairness principles, which require AI outputs to avoid perpetuating biases and discrimination."
+  },
+  {
+    "id": 163,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "What is the environmental consideration in responsible AI development?",
+    "options": [
+      "The physical color of data center buildings",
+      "The temperature of the server room",
+      "The energy consumption and carbon footprint of training and running large AI models",
+      "The geographic location of the nearest ocean"
+    ],
+    "answer": "The energy consumption and carbon footprint of training and running large AI models",
+    "explanation": "Responsible AI includes consideration of environmental impact from energy-intensive model training and inference, promoting efficiency and sustainable practices."
+  },
+  {
+    "id": 164,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A machine learning team finds that their model performs significantly worse for minority demographic groups compared to the majority group. Which type of bias does this represent?",
+    "options": [
+      "Selection bias in hardware procurement",
+      "Survivorship bias in business strategy",
+      "Confirmation bias in project management",
+      "Performance disparity bias where model accuracy differs across demographic groups"
+    ],
+    "answer": "Performance disparity bias where model accuracy differs across demographic groups",
+    "explanation": "Performance disparity occurs when a model has significantly different accuracy, precision, or recall across demographic groups, indicating unfair treatment."
+  },
+  {
+    "id": 165,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "Which practice helps ensure AI models remain fair over time as data distributions change?",
+    "options": [
+      "Continuous monitoring for bias drift with regular fairness assessments",
+      "Never updating the model after initial deployment",
+      "Using the same training data indefinitely",
+      "Removing all logging and monitoring"
+    ],
+    "answer": "Continuous monitoring for bias drift with regular fairness assessments",
+    "explanation": "Continuous bias monitoring detects fairness degradation as real-world data shifts, enabling timely interventions to maintain equitable model performance."
+  },
+  {
+    "id": 166,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "What is the '80% rule' (or four-fifths rule) used for in AI fairness evaluation?",
+    "options": [
+      "A model must achieve 80% accuracy",
+      "The selection rate for a protected group should be at least 80% of the rate for the most-selected group to avoid disparate impact",
+      "Training must use 80% of available data",
+      "The model must process 80% of requests within SLA"
+    ],
+    "answer": "The selection rate for a protected group should be at least 80% of the rate for the most-selected group to avoid disparate impact",
+    "explanation": "The four-fifths rule is a legal standard where a selection rate below 80% of the highest group's rate may indicate disparate impact requiring investigation."
+  },
+  {
+    "id": 167,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "A company deploys an AI content moderation system. Users report that it disproportionately flags content from certain cultural communities. What should the company do FIRST?",
+    "options": [
+      "Ignore the reports since the model was tested before deployment",
+      "Immediately shut down the entire system permanently",
+      "Investigate the reports by analyzing model performance across different user communities and adjust accordingly",
+      "Increase the model's confidence threshold for all users"
+    ],
+    "answer": "Investigate the reports by analyzing model performance across different user communities and adjust accordingly",
+    "explanation": "Responsible practice requires investigating fairness concerns by analyzing disaggregated performance metrics and taking corrective action when disparities are confirmed."
+  },
+  {
+    "id": 168,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "mcq",
+    "text": "Which responsible AI practice involves documenting known limitations and failure modes of an AI system so users can make informed decisions?",
+    "options": [
+      "Data augmentation",
+      "Auto-scaling configuration",
+      "Model quantization",
+      "Transparency through limitation disclosure and documentation"
+    ],
+    "answer": "Transparency through limitation disclosure and documentation",
+    "explanation": "Transparently documenting known limitations helps users understand when the system may be unreliable, enabling better-informed decisions about when to rely on AI outputs."
+  },
+  {
+    "id": 169,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "multi-select",
+    "text": "Which TWO techniques does Amazon SageMaker Clarify provide for responsible AI? (Select TWO)",
+    "options": [
+      "Automatic model architecture search",
+      "Bias detection in training data and model predictions",
+      "Custom hardware design",
+      "Feature attribution explanations using SHAP values",
+      "Automated code generation"
+    ],
+    "answer": [
+      "Bias detection in training data and model predictions",
+      "Feature attribution explanations using SHAP values"
+    ],
+    "explanation": "SageMaker Clarify provides bias detection (pre-training and post-training metrics) and explainability through SHAP-based feature attribution."
+  },
+  {
+    "id": 170,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "multi-select",
+    "text": "A company is implementing responsible AI governance. Which TWO practices are essential components of an AI governance framework? (Select TWO)",
+    "options": [
+      "Maximizing model size regardless of need",
+      "Establishing clear accountability and oversight structures for AI systems",
+      "Using only open-source models",
+      "Conducting regular bias audits and fairness assessments",
+      "Avoiding all documentation to maintain agility"
+    ],
+    "answer": [
+      "Establishing clear accountability and oversight structures for AI systems",
+      "Conducting regular bias audits and fairness assessments"
+    ],
+    "explanation": "AI governance requires accountability structures (clear ownership and oversight) and regular bias audits (ongoing fairness verification) as fundamental components."
+  },
+  {
+    "id": 171,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "multi-select",
+    "text": "Which TWO approaches help make AI systems more transparent to end users? (Select TWO)",
+    "options": [
+      "Obfuscating the model's decision-making process",
+      "Providing confidence scores alongside AI predictions",
+      "Hiding model limitations from users",
+      "Offering natural language explanations for AI-generated recommendations",
+      "Using only black-box models"
+    ],
+    "answer": [
+      "Providing confidence scores alongside AI predictions",
+      "Offering natural language explanations for AI-generated recommendations"
+    ],
+    "explanation": "Confidence scores communicate certainty levels, and natural language explanations help users understand reasoning - both improving transparency."
+  },
+  {
+    "id": 172,
+    "domain": "Domain 4: Guidelines for Responsible AI",
+    "type": "multi-select",
+    "text": "Which TWO types of bias can SageMaker Clarify detect? (Select TWO)",
+    "options": [
+      "Hardware manufacturing bias",
+      "Pre-training data bias such as class imbalance across demographic groups",
+      "Network latency bias",
+      "Post-training prediction bias such as difference in positive proportions",
+      "Compiler optimization bias"
+    ],
+    "answer": [
+      "Pre-training data bias such as class imbalance across demographic groups",
+      "Post-training prediction bias such as difference in positive proportions"
+    ],
+    "explanation": "SageMaker Clarify measures pre-training bias (data representation issues) and post-training bias (disparities in model predictions across groups)."
+  },
+  {
+    "id": 173,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company needs to encrypt their SageMaker training data at rest. Which AWS service should they use to manage the encryption keys?",
+    "options": [
+      "AWS Key Management Service (KMS)",
+      "AWS Secrets Manager",
+      "Amazon Cognito",
+      "AWS Certificate Manager"
+    ],
+    "answer": "AWS Key Management Service (KMS)",
+    "explanation": "AWS KMS provides centralized management of encryption keys used to encrypt data at rest, including SageMaker training data, model artifacts, and notebooks."
+  },
+  {
+    "id": 174,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which AWS service records API calls made to AWS AI services for auditing and compliance purposes?",
+    "options": [
+      "Amazon CloudWatch Metrics",
+      "AWS CloudTrail",
+      "AWS Config",
+      "Amazon GuardDuty"
+    ],
+    "answer": "AWS CloudTrail",
+    "explanation": "AWS CloudTrail records all API calls across AWS services including AI services, providing an audit trail for security analysis and compliance verification."
+  },
+  {
+    "id": 175,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company running SageMaker training jobs needs to ensure that the training instances cannot access the public internet. Which configuration achieves this?",
+    "options": [
+      "Using larger instance types",
+      "Disabling CloudWatch logging",
+      "Configuring SageMaker to run in a VPC with no internet gateway and using VPC endpoints for AWS service access",
+      "Using on-demand instances instead of spot instances"
+    ],
+    "answer": "Configuring SageMaker to run in a VPC with no internet gateway and using VPC endpoints for AWS service access",
+    "explanation": "Running SageMaker in a VPC without internet access and using VPC endpoints keeps all traffic private while maintaining access to necessary AWS services."
+  },
+  {
+    "id": 176,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Under the AWS shared responsibility model for AI services, which responsibility belongs to the CUSTOMER?",
+    "options": [
+      "Physical security of data centers hosting AI services",
+      "Patching the underlying infrastructure of managed AI services",
+      "Maintaining the hardware accelerators (GPUs) used by managed services",
+      "Controlling access to their AI resources through IAM policies and encryption of their data"
+    ],
+    "answer": "Controlling access to their AI resources through IAM policies and encryption of their data",
+    "explanation": "Under shared responsibility, customers are responsible for securing access to their resources (IAM, encryption, network configuration) while AWS manages the underlying infrastructure."
+  },
+  {
+    "id": 177,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A healthcare company needs to ensure their AI solution on AWS meets HIPAA compliance requirements. What must they have in place FIRST?",
+    "options": [
+      "A signed Business Associate Agreement (BAA) with AWS",
+      "A machine learning model with 99% accuracy",
+      "A multi-region deployment architecture",
+      "A minimum of 10 SageMaker endpoints"
+    ],
+    "answer": "A signed Business Associate Agreement (BAA) with AWS",
+    "explanation": "HIPAA compliance on AWS requires a signed Business Associate Agreement (BAA) between the organization and AWS as a prerequisite for processing protected health information."
+  },
+  {
+    "id": 178,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which AWS service can automatically discover and classify sensitive data like PII in S3 buckets that may be used for AI training?",
+    "options": [
+      "Amazon Inspector",
+      "Amazon Macie",
+      "AWS Trusted Advisor",
+      "Amazon Detective"
+    ],
+    "answer": "Amazon Macie",
+    "explanation": "Amazon Macie uses ML to automatically discover, classify, and protect sensitive data in S3, identifying PII and other sensitive content in training datasets."
+  },
+  {
+    "id": 179,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company uses Amazon Bedrock and wants to ensure that no customer data is used to train or improve the foundation models. Which statement about Bedrock's data handling is correct?",
+    "options": [
+      "All customer data is automatically used to improve models",
+      "Customers must pay extra to opt out of data sharing",
+      "Amazon Bedrock does not use customer inputs or outputs to train or improve the base foundation models",
+      "Only enterprise tier customers get data isolation"
+    ],
+    "answer": "Amazon Bedrock does not use customer inputs or outputs to train or improve the base foundation models",
+    "explanation": "Amazon Bedrock does not use customer data (inputs/outputs) to train or improve the foundation models, providing data isolation by default."
+  },
+  {
+    "id": 180,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which IAM best practice should be applied when granting access to Amazon Bedrock model invocations?",
+    "options": [
+      "Using the root account for all API calls",
+      "Granting the broadest permissions possible for convenience",
+      "Sharing IAM credentials across teams for easier management",
+      "Applying the principle of least privilege with specific permissions for only required models and actions"
+    ],
+    "answer": "Applying the principle of least privilege with specific permissions for only required models and actions",
+    "explanation": "Least privilege ensures users and services only have the minimum permissions needed, reducing the blast radius of potential security incidents."
+  },
+  {
+    "id": 181,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company needs to ensure data residency requirements are met for their AI workloads, keeping all data within a specific geographic region. Which AWS capability supports this?",
+    "options": [
+      "Selecting specific AWS Regions for all AI service deployments and configuring data processing to stay within that region",
+      "Using Amazon CloudFront global distribution",
+      "Using AWS Global Accelerator",
+      "Enabling cross-region replication"
+    ],
+    "answer": "Selecting specific AWS Regions for all AI service deployments and configuring data processing to stay within that region",
+    "explanation": "AWS Regions provide geographic isolation, and configuring AI services within a specific region ensures data residency requirements are met."
+  },
+  {
+    "id": 182,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which AWS service provides on-demand access to AWS compliance reports and security documentation, such as SOC reports?",
+    "options": [
+      "AWS Config",
+      "AWS Artifact",
+      "AWS Security Hub",
+      "Amazon Inspector"
+    ],
+    "answer": "AWS Artifact",
+    "explanation": "AWS Artifact provides on-demand access to AWS compliance documentation including SOC reports, ISO certifications, and other audit artifacts."
+  },
+  {
+    "id": 183,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company wants to detect when their SageMaker endpoint configuration deviates from organizational security policies. Which service enables this continuous compliance monitoring?",
+    "options": [
+      "Amazon SageMaker Debugger",
+      "Amazon CloudWatch Alarms",
+      "AWS Config with custom rules",
+      "AWS Trusted Advisor"
+    ],
+    "answer": "AWS Config with custom rules",
+    "explanation": "AWS Config continuously evaluates resource configurations against defined rules, detecting deviations from security policies and enabling automated remediation."
+  },
+  {
+    "id": 184,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "What is the purpose of Amazon Bedrock Guardrails in the context of security and governance?",
+    "options": [
+      "Managing IAM user accounts",
+      "Managing encryption key rotation",
+      "Configuring network firewalls",
+      "Enforcing content policies by filtering harmful content, PII, and off-topic responses at the application level"
+    ],
+    "answer": "Enforcing content policies by filtering harmful content, PII, and off-topic responses at the application level",
+    "explanation": "Bedrock Guardrails enforce organizational content policies by blocking harmful content, detecting and masking PII, and preventing off-topic responses."
+  },
+  {
+    "id": 185,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A security team needs to ensure that all data transmitted between their application and Amazon Bedrock is encrypted. Which encryption method protects data in transit?",
+    "options": [
+      "TLS (Transport Layer Security) encryption for all API communications",
+      "Server-side encryption with S3-managed keys",
+      "AWS KMS customer-managed keys",
+      "EBS volume encryption"
+    ],
+    "answer": "TLS (Transport Layer Security) encryption for all API communications",
+    "explanation": "TLS encryption protects data in transit between applications and AWS services, ensuring all Bedrock API communications are encrypted during transmission."
+  },
+  {
+    "id": 186,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company wants to restrict which foundation models specific teams can access on Amazon Bedrock. How should they implement this?",
+    "options": [
+      "By creating separate AWS accounts for each model",
+      "Using IAM policies that specify allowed Bedrock model IDs in the Resource or Condition elements",
+      "By physically separating network segments",
+      "Using Amazon Cognito user pools only"
+    ],
+    "answer": "Using IAM policies that specify allowed Bedrock model IDs in the Resource or Condition elements",
+    "explanation": "IAM policies can restrict access to specific Bedrock models by specifying model ARNs in Resource elements, enabling fine-grained access control per team."
+  },
+  {
+    "id": 187,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which governance practice helps organizations maintain an inventory of all AI models deployed in production, including their risk levels and owners?",
+    "options": [
+      "Relying on individual team members' memory",
+      "Using a spreadsheet shared via email",
+      "A centralized AI model registry with metadata tracking",
+      "Storing model files without any documentation"
+    ],
+    "answer": "A centralized AI model registry with metadata tracking",
+    "explanation": "A model registry provides centralized tracking of deployed models, their versions, risk levels, owners, and compliance status for effective AI governance."
+  },
+  {
+    "id": 188,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company needs to comply with GDPR for their AI system deployed on AWS. Which requirement is critical for their ML training data?",
+    "options": [
+      "Data must be stored on the largest available instance type",
+      "Models must be retrained every 24 hours",
+      "All data must be stored in the US-East-1 region",
+      "Users must have the right to request deletion of their personal data, including from training datasets"
+    ],
+    "answer": "Users must have the right to request deletion of their personal data, including from training datasets",
+    "explanation": "GDPR's right to erasure requires organizations to delete personal data upon request, which extends to data used in ML training pipelines."
+  },
+  {
+    "id": 189,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which mechanism allows Amazon SageMaker endpoints to be accessed privately from within a VPC without traversing the public internet?",
+    "options": [
+      "AWS PrivateLink (VPC Endpoints)",
+      "NAT Gateway",
+      "Internet Gateway",
+      "VPN Client"
+    ],
+    "answer": "AWS PrivateLink (VPC Endpoints)",
+    "explanation": "AWS PrivateLink creates private connectivity from a VPC to SageMaker endpoints through VPC interface endpoints, keeping traffic off the public internet."
+  },
+  {
+    "id": 190,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A compliance team wants to ensure that all Amazon Bedrock model invocations in their organization are logged. Which combination of services provides comprehensive audit logging?",
+    "options": [
+      "Only Amazon S3 access logs",
+      "AWS CloudTrail for API call logging combined with Bedrock model invocation logging to CloudWatch or S3",
+      "Only VPC Flow Logs",
+      "Only AWS Config snapshots"
+    ],
+    "answer": "AWS CloudTrail for API call logging combined with Bedrock model invocation logging to CloudWatch or S3",
+    "explanation": "CloudTrail captures Bedrock API calls, and Bedrock's model invocation logging records detailed inputs/outputs, providing comprehensive audit coverage."
+  },
+  {
+    "id": 191,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which security control prevents prompt injection attacks where malicious users try to override system instructions in an LLM application?",
+    "options": [
+      "Using larger model sizes",
+      "Increasing the temperature parameter",
+      "Implementing input validation, output filtering, and separation of system and user prompts",
+      "Using batch processing instead of real-time"
+    ],
+    "answer": "Implementing input validation, output filtering, and separation of system and user prompts",
+    "explanation": "Input validation, output filtering, and strict separation between system instructions and user inputs help mitigate prompt injection attacks."
+  },
+  {
+    "id": 192,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company stores ML model artifacts in S3 and needs to prevent unauthorized access. Which S3 security feature should they configure?",
+    "options": [
+      "S3 Transfer Acceleration",
+      "S3 Lifecycle policies",
+      "S3 Cross-Region Replication",
+      "S3 bucket policies and access control lists (ACLs) combined with encryption"
+    ],
+    "answer": "S3 bucket policies and access control lists (ACLs) combined with encryption",
+    "explanation": "S3 bucket policies control who can access the objects, and encryption (SSE-KMS or SSE-S3) protects the model artifacts at rest."
+  },
+  {
+    "id": 193,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "In the context of AI governance, what is the purpose of maintaining a risk assessment for AI systems?",
+    "options": [
+      "To identify, evaluate, and prioritize potential risks and harms before and during AI system deployment",
+      "To maximize model training speed",
+      "To reduce storage costs",
+      "To improve model accuracy"
+    ],
+    "answer": "To identify, evaluate, and prioritize potential risks and harms before and during AI system deployment",
+    "explanation": "Risk assessments systematically identify potential harms, evaluate their likelihood and severity, and prioritize mitigation strategies for responsible deployment."
+  },
+  {
+    "id": 194,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which AWS service helps detect unauthorized or unusual activity across AWS accounts including AI services?",
+    "options": [
+      "Amazon Comprehend",
+      "Amazon GuardDuty",
+      "Amazon Translate",
+      "Amazon Polly"
+    ],
+    "answer": "Amazon GuardDuty",
+    "explanation": "Amazon GuardDuty is a threat detection service that monitors for malicious activity and unauthorized behavior across AWS accounts using ML and threat intelligence."
+  },
+  {
+    "id": 195,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "A company needs to implement role-based access control for their SageMaker Studio environment where data scientists, MLOps engineers, and managers have different permissions. What is the BEST approach?",
+    "options": [
+      "Giving everyone administrator access for productivity",
+      "Using a single shared set of credentials",
+      "Creating separate IAM roles with specific permissions for each team function",
+      "Disabling all IAM controls for SageMaker"
+    ],
+    "answer": "Creating separate IAM roles with specific permissions for each team function",
+    "explanation": "Separate IAM roles per function enable least-privilege access, ensuring each team member has only the permissions necessary for their specific responsibilities."
+  },
+  {
+    "id": 196,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "mcq",
+    "text": "Which Amazon Bedrock Guardrails feature helps prevent the model from revealing sensitive information like credit card numbers in its responses?",
+    "options": [
+      "Topic filtering",
+      "Content filters for harmful categories",
+      "Word filters",
+      "Sensitive information filters (PII detection and masking)"
+    ],
+    "answer": "Sensitive information filters (PII detection and masking)",
+    "explanation": "Bedrock Guardrails' sensitive information filters detect and mask PII like credit card numbers, SSNs, and other sensitive data in model responses."
+  },
+  {
+    "id": 197,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "multi-select",
+    "text": "A company is securing their Amazon SageMaker environment. Which TWO security controls should they implement? (Select TWO)",
+    "options": [
+      "Disabling all logging for performance",
+      "Encrypting data at rest using AWS KMS keys for training data and model artifacts",
+      "Using public S3 buckets for easier access",
+      "Running training jobs within a VPC with no public internet access",
+      "Sharing IAM credentials across all developers"
+    ],
+    "answer": [
+      "Encrypting data at rest using AWS KMS keys for training data and model artifacts",
+      "Running training jobs within a VPC with no public internet access"
+    ],
+    "explanation": "KMS encryption protects data at rest, and VPC isolation prevents unauthorized network access - both fundamental security controls for SageMaker."
+  },
+  {
+    "id": 198,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "multi-select",
+    "text": "Which TWO AWS services help organizations demonstrate compliance with regulatory requirements for their AI solutions? (Select TWO)",
+    "options": [
+      "Amazon Rekognition for facial analysis",
+      "AWS Artifact for accessing compliance reports and certifications",
+      "Amazon Polly for speech synthesis",
+      "AWS CloudTrail for maintaining audit logs of all API activity",
+      "Amazon Personalize for recommendations"
+    ],
+    "answer": [
+      "AWS Artifact for accessing compliance reports and certifications",
+      "AWS CloudTrail for maintaining audit logs of all API activity"
+    ],
+    "explanation": "AWS Artifact provides compliance documentation and certifications, while CloudTrail maintains detailed audit logs - both essential for demonstrating regulatory compliance."
+  },
+  {
+    "id": 199,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "multi-select",
+    "text": "A security architect is designing data protection for an AI pipeline on AWS. Which TWO methods protect data at different stages? (Select TWO)",
+    "options": [
+      "Using HTTP instead of HTTPS for faster performance",
+      "TLS encryption for protecting data in transit between services",
+      "Removing all encryption for easier debugging",
+      "AWS KMS encryption for protecting data at rest in S3 and EBS",
+      "Storing encryption keys in plain text files"
+    ],
+    "answer": [
+      "TLS encryption for protecting data in transit between services",
+      "AWS KMS encryption for protecting data at rest in S3 and EBS"
+    ],
+    "explanation": "TLS protects data moving between services (in transit), while KMS encryption protects stored data (at rest), providing comprehensive data protection."
+  },
+  {
+    "id": 200,
+    "domain": "Domain 5: Security, Compliance, and Governance for AI Solutions",
+    "type": "multi-select",
+    "text": "Which TWO governance controls help organizations manage the lifecycle of AI models in production? (Select TWO)",
+    "options": [
+      "Ignoring model performance after deployment",
+      "Implementing model versioning with approval workflows before deployment",
+      "Using only default settings without customization",
+      "Continuous monitoring with automated alerts for model drift or performance degradation",
+      "Deploying models without any testing"
+    ],
+    "answer": [
+      "Implementing model versioning with approval workflows before deployment",
+      "Continuous monitoring with automated alerts for model drift or performance degradation"
+    ],
+    "explanation": "Version control with approval gates ensures only reviewed models are deployed, and continuous monitoring catches post-deployment issues - both essential lifecycle governance controls."
+  }
+]
