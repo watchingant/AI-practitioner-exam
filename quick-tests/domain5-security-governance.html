@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Domain 5: Security, Compliance, and Governance</title>
+<style>
+  :root {
+    --accent:  #B71C1C;
+    --navy:    #232F3E;
+    --correct-bg: #d4edda; --correct-border: #28a745;
+    --wrong-bg:   #f8d7da; --wrong-border:   #dc3545;
+    --neutral-bg: #f4f6f8; --card-bg: #ffffff;
+    --radius: 10px; --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          background: var(--neutral-bg); color: #222; line-height: 1.6; }
+
+  header {
+    background: var(--navy); color: #fff; padding: 16px 24px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  header h1 { font-size: 1rem; font-weight: 700; }
+  header h1 span { color: #B71C1C; }
+  .header-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; flex-wrap: wrap; gap: 8px; }
+  #progress-bar-wrap { flex: 1; background: rgba(255,255,255,0.2); border-radius: 4px; height: 6px; min-width: 120px; }
+  #progress-bar { height: 6px; border-radius: 4px; background: #B71C1C; transition: width 0.3s; width: 0%; }
+  #progress-text { font-size: 0.8rem; color: #ccc; white-space: nowrap; }
+  .back-link { font-size: 0.8rem; color: #aaa; text-decoration: none; margin-right: 12px; }
+  .back-link:hover { color: #fff; }
+
+  main { max-width: 860px; margin: 28px auto; padding: 0 16px 60px; }
+
+  .domain-badge {
+    display: inline-block; background: #B71C1C; color: #fff;
+    border-radius: 6px; padding: 6px 16px; font-size: 0.85rem;
+    font-weight: 700; margin-bottom: 24px;
+  }
+
+  .question-card {
+    background: var(--card-bg); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 24px; margin-bottom: 28px;
+    border-left: 5px solid #ddd; transition: border-color 0.3s;
+  }
+  .question-card.answered-correct { border-left-color: var(--correct-border); }
+  .question-card.answered-wrong   { border-left-color: var(--wrong-border); }
+  .question-card.answered-partial { border-left-color: #B71C1C; }
+
+  .q-header { display: flex; gap: 12px; align-items: baseline; margin-bottom: 14px; flex-wrap: wrap; }
+  .q-num {
+    font-size: 0.72rem; font-weight: 700; background: var(--navy);
+    color: #fff; padding: 2px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+  }
+  .q-source {
+    font-size: 0.68rem; color: #888; background: #eee;
+    padding: 1px 7px; border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+  }
+  .q-text { font-size: 0.97rem; font-weight: 600; line-height: 1.5; }
+  .multi-badge {
+    font-size: 0.7rem; background: #B71C1C; color: #fff;
+    border-radius: 4px; padding: 1px 6px; margin-left: 6px;
+    font-weight: 600; white-space: nowrap;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .option-label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border: 2px solid #e0e0e0; border-radius: 8px;
+    cursor: pointer; transition: border-color 0.15s, background 0.15s; font-size: 0.92rem;
+  }
+  .option-label:hover { border-color: #B71C1C; background: #f5f5ff; }
+  .option-label input { flex-shrink: 0; margin-top: 3px; accent-color: #B71C1C; }
+  .option-label .letter { font-weight: 700; color: var(--navy); flex-shrink: 0; min-width: 22px; }
+  .option-label.correct { border-color: var(--correct-border); background: var(--correct-bg); }
+  .option-label.wrong   { border-color: var(--wrong-border);   background: var(--wrong-bg); }
+  .option-label.disabled { cursor: default; pointer-events: none; }
+  .option-label.correct::after { content: " ✓"; color: var(--correct-border); font-weight: 700; }
+  .option-label.wrong::after   { content: " ✗"; color: var(--wrong-border);   font-weight: 700; }
+
+  .submit-btn {
+    display: inline-block; padding: 9px 22px; background: var(--navy);
+    color: #fff; border: none; border-radius: 6px; font-size: 0.9rem;
+    font-weight: 600; cursor: pointer; transition: background 0.2s;
+  }
+  .submit-btn:hover { background: #B71C1C; }
+  .submit-btn:disabled { background: #aaa; cursor: default; }
+
+  .result-badge {
+    display: inline-block; font-size: 0.8rem; font-weight: 700;
+    padding: 2px 10px; border-radius: 12px; margin-bottom: 12px;
+  }
+  .result-badge.correct { background: var(--correct-bg); color: var(--correct-border); border: 1px solid var(--correct-border); }
+  .result-badge.wrong   { background: var(--wrong-bg);   color: var(--wrong-border);   border: 1px solid var(--wrong-border); }
+  .result-badge.partial { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+
+  .explanation { margin-top: 16px; border-radius: 8px; border: 1px solid #d0d0d0; overflow: hidden; }
+  .explanation summary {
+    list-style: none; padding: 10px 16px; background: #f0f0f0;
+    cursor: pointer; font-size: 0.88rem; font-weight: 600;
+    display: flex; align-items: center; gap: 8px; user-select: none;
+  }
+  .explanation summary::-webkit-details-marker { display: none; }
+  .explanation summary::before { content: "▶"; font-size: 0.7rem; transition: transform 0.2s; }
+  .explanation[open] summary::before { transform: rotate(90deg); }
+  .explanation-body {
+    padding: 14px 16px; font-size: 0.9rem; line-height: 1.65;
+    background: #fafafa; border-top: 1px solid #d0d0d0;
+  }
+
+  #score-panel {
+    display: none; background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 32px; text-align: center;
+    margin-bottom: 40px; box-shadow: var(--shadow);
+  }
+  #score-panel h2 { font-size: 1.4rem; margin-bottom: 8px; }
+  .score-num { font-size: 3rem; font-weight: 900; color: #B71C1C; }
+  .score-pct { font-size: 1rem; color: #ccc; margin-bottom: 16px; }
+  .score-grade { font-size: 1rem; }
+
+  @media (max-width: 600px) {
+    header { padding: 12px 14px; }
+    .question-card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1><span>Domain 5: Security, Compliance, and Governance</span></h1>
+    <div class="header-meta">
+      <div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+      <span id="progress-text">0 / 24 answered</span>
+    </div>
+  </div>
+</header>
+<main>
+  <div id="score-panel">
+    <h2>Domain Complete!</h2>
+    <div class="score-num" id="score-correct">0</div>
+    <div class="score-pct" id="score-pct">out of 24 questions</div>
+    <div class="score-grade" id="score-grade"></div>
+  </div>
+  <div id="questions"></div>
+</main>
+<script>
+const QUESTIONS = [{"num": 22, "source": "Exam 1", "text": "A company is building a fraud detection model and needs to understand which features contribute most to individual predictions for regulatory compliance. Which technique provides instance-level feature importance explanations?", "options": [{"letter": "A", "text": "Global feature importance from random forests"}, {"letter": "B", "text": "SHAP (SHapley Additive exPlanations) values"}, {"letter": "C", "text": "Confusion matrix analysis"}, {"letter": "D", "text": "Learning curve plots"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nSHAP values provide instance-level (local) explanations showing how each feature contributes to a specific prediction, which is essential for regulatory compliance. Global feature importance shows overall importance but not per-prediction reasoning. Confusion matrices show aggregate performance. Learning curves show training progress, not feature contributions.", "multi": false, "domain": 5}, {"num": 44, "source": "Exam 1", "text": "A team is working with a generative AI model and wants to understand how the model processes input text internally. In the transformer architecture, what role do positional encodings serve?", "options": [{"letter": "A", "text": "They determine the model's output language"}, {"letter": "B", "text": "They provide information about the order/position of tokens in the sequence since attention is position-agnostic"}, {"letter": "C", "text": "They encrypt the input for security purposes"}, {"letter": "D", "text": "They compress the input to reduce memory usage"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nSelf-attention mechanisms are inherently permutation-invariant (they don't inherently know token order), so positional encodings are added to provide sequence position information. Without them, the model would treat \"the cat sat on the mat\" and \"mat the on sat cat the\" identically. They don't determine output language, provide encryption, or compress input.", "multi": false, "domain": 5}, {"num": 75, "source": "Exam 1", "text": "A company wants to use generative AI to analyze their existing codebase, identify bugs, and suggest improvements. Which AWS service provides AI-powered code analysis and security scanning integrated into the development workflow?", "options": [{"letter": "A", "text": "Amazon Q Developer"}, {"letter": "B", "text": "AWS CloudTrail"}, {"letter": "C", "text": "Amazon Kinesis"}, {"letter": "D", "text": "AWS Config"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nAmazon Q Developer provides AI-powered code analysis, security vulnerability scanning, bug detection, and improvement suggestions integrated into IDEs and CI/CD workflows. CloudTrail logs API activity. Kinesis processes streaming data. AWS Config tracks resource configurations.", "multi": false, "domain": 5}, {"num": 105, "source": "Exam 1", "text": "A company is deploying an Amazon SageMaker training job that processes sensitive patient health data. They need to ensure the training data is encrypted both at rest and in transit. Which AWS services and features should they use? (Select TWO)", "options": [{"letter": "A", "text": "AWS KMS for managing encryption keys used by SageMaker to encrypt data at rest"}, {"letter": "B", "text": "Storing data in unencrypted public S3 buckets"}, {"letter": "C", "text": "TLS/SSL encryption for data in transit between S3 and the training instance"}, {"letter": "D", "text": "Disabling VPC configuration for easier network access"}, {"letter": "E", "text": "Using HTTP instead of HTTPS for faster data transfer"}], "correct": ["A", "C"], "explanation": "<strong>Explanation:</strong>\nAWS KMS provides managed encryption keys that SageMaker uses to encrypt training data, model artifacts, and volumes at rest. TLS/SSL secures data in transit between services. Unencrypted public buckets expose sensitive data. Disabling VPC removes network isolation. HTTP without encryption exposes data during transfer.", "multi": true, "domain": 5}, {"num": 106, "source": "Exam 1", "text": "A company wants to ensure their Amazon SageMaker notebook instances and training jobs are isolated within their own private network and cannot be accessed from the public internet. Which AWS networking feature enables this isolation?", "options": [{"letter": "A", "text": "Amazon CloudFront distribution"}, {"letter": "B", "text": "Amazon Route 53 public hosted zone"}, {"letter": "C", "text": "Amazon VPC (Virtual Private Cloud) with private subnets"}, {"letter": "D", "text": "AWS Global Accelerator"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nDeploying SageMaker resources within a VPC using private subnets ensures network isolation from the public internet. Security groups and NACLs provide additional access control. CloudFront is a CDN for content delivery. Route 53 manages DNS. Global Accelerator optimizes network performance but doesn't provide isolation.", "multi": false, "domain": 5}, {"num": 107, "source": "Exam 1", "text": "A security team needs to audit all API calls made to Amazon Bedrock in their AWS account, including who made the call, when it was made, and from which IP address. Which AWS service provides this audit trail?", "options": [{"letter": "A", "text": "Amazon CloudWatch Metrics"}, {"letter": "B", "text": "AWS Trusted Advisor"}, {"letter": "C", "text": "Amazon Inspector"}, {"letter": "D", "text": "AWS CloudTrail"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nAWS CloudTrail records all AWS API calls including those to Amazon Bedrock, capturing the identity of the caller, timestamp, source IP, request parameters, and response. CloudWatch Metrics provides operational metrics. Inspector assesses security vulnerabilities. Trusted Advisor provides best practice recommendations.", "multi": false, "domain": 5}, {"num": 108, "source": "Exam 1", "text": "A company is using Amazon Bedrock and needs to control which IAM users and roles can invoke specific foundation models. Which AWS mechanism provides this fine-grained access control?", "options": [{"letter": "A", "text": "Amazon Bedrock Guardrails"}, {"letter": "B", "text": "AWS WAF rules"}, {"letter": "C", "text": "Amazon VPC security groups"}, {"letter": "D", "text": "IAM policies with Bedrock-specific actions and resource ARNs"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nIAM policies allow fine-grained access control specifying which users/roles can perform which Bedrock actions (like InvokeModel) on which specific model resources (using ARNs). Bedrock Guardrails filter content, not access. VPC security groups control network traffic, not service permissions. WAF protects web applications from exploits.", "multi": false, "domain": 5}, {"num": 109, "source": "Exam 1", "text": "A healthcare organization is building an AI application on AWS that processes protected health information (PHI). Which compliance framework must they ensure their AWS services configuration adheres to?", "options": [{"letter": "A", "text": "HIPAA (Health Insurance Portability and Accountability Act)"}, {"letter": "B", "text": "PCI DSS only"}, {"letter": "C", "text": "SOX (Sarbanes-Oxley) only"}, {"letter": "D", "text": "FISMA only"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nHIPAA governs the protection of protected health information (PHI) and requires specific safeguards for healthcare data. AWS offers HIPAA-eligible services and Business Associate Agreements (BAAs). PCI DSS covers payment card data. SOX covers financial reporting. FISMA covers federal government information systems.", "multi": false, "domain": 5}, {"num": 110, "source": "Exam 1", "text": "A company operating in Europe is using Amazon Bedrock and must ensure that their data is processed and stored only within the EU to comply with data sovereignty requirements. Which AWS capability helps address this?", "options": [{"letter": "A", "text": "Using AWS Global Accelerator to route traffic worldwide"}, {"letter": "B", "text": "Using CloudFront to cache data globally"}, {"letter": "C", "text": "Enabling cross-region replication to all regions"}, {"letter": "D", "text": "Choosing an AWS Region located within the EU for Bedrock resources"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nAWS Regions are physically isolated locations, and selecting an EU Region ensures data processing and storage remain within EU boundaries for data residency compliance. CloudFront global caching, cross-region replication, and Global Accelerator all distribute data beyond the EU, violating sovereignty requirements.", "multi": false, "domain": 5}, {"num": 111, "source": "Exam 1", "text": "A security engineer needs to establish a private connection between their VPC and Amazon SageMaker endpoints without traffic traversing the public internet. Which AWS service creates this private connectivity?", "options": [{"letter": "A", "text": "AWS PrivateLink (VPC Endpoints)"}, {"letter": "B", "text": "AWS Direct Connect"}, {"letter": "C", "text": "Internet Gateway"}, {"letter": "D", "text": "NAT Gateway"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nAWS PrivateLink creates private connections between VPCs and AWS services through VPC endpoints, ensuring traffic stays within the AWS network without traversing the public internet. Direct Connect connects on-premises to AWS. Internet Gateways provide public internet access. NAT Gateways allow outbound internet access from private subnets.", "multi": false, "domain": 5}, {"num": 112, "source": "Exam 1", "text": "A company wants to detect sensitive data like credit card numbers and personal identifiers in their S3 data lake before using it for ML training. Which AWS service automatically discovers, classifies, and protects sensitive data at scale?", "options": [{"letter": "A", "text": "Amazon GuardDuty"}, {"letter": "B", "text": "Amazon Macie"}, {"letter": "C", "text": "AWS Config"}, {"letter": "D", "text": "Amazon Detective"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nAmazon Macie uses machine learning to automatically discover, classify, and protect sensitive data (PII, financial data, credentials) stored in Amazon S3. GuardDuty detects threats and suspicious activity. AWS Config tracks resource configurations. Detective investigates security findings. None of these others specialize in sensitive data discovery.", "multi": false, "domain": 5}, {"num": 113, "source": "Exam 1", "text": "A company is using both Amazon Bedrock and Amazon SageMaker. Under the AWS Shared Responsibility Model, which security responsibilities belong to the CUSTOMER? (Select TWO)", "options": [{"letter": "A", "text": "Physical security of AWS data centers"}, {"letter": "B", "text": "Configuring IAM policies to control access to AI services"}, {"letter": "C", "text": "Patching the underlying hypervisor and hardware"}, {"letter": "D", "text": "Encrypting sensitive training data and managing encryption keys"}, {"letter": "E", "text": "Maintaining the global AWS network infrastructure"}], "correct": ["B", "D"], "explanation": "<strong>Explanation:</strong>\nUnder the Shared Responsibility Model, customers are responsible for security \"in\" the cloud: IAM configuration, data encryption, access management, and application security. AWS is responsible for security \"of\" the cloud: physical data center security, hypervisor patching, and global network infrastructure maintenance.", "multi": true, "domain": 5}, {"num": 115, "source": "Exam 1", "text": "A company processes data subject to GDPR and needs to implement the \"right to be forgotten\" for their ML models trained on personal data. Which challenge does this present for machine learning systems?", "options": [{"letter": "A", "text": "It's impossible to comply with GDPR when using ML"}, {"letter": "B", "text": "They may need to retrain models after removing specific individual's data, or use techniques like machine unlearning"}, {"letter": "C", "text": "GDPR doesn't apply to machine learning models"}, {"letter": "D", "text": "Simply deleting the S3 training files is always sufficient compliance"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nThe right to erasure under GDPR can require removing an individual's influence from trained models, potentially necessitating model retraining or machine unlearning techniques. It's not impossible to comply, but it requires careful planning. GDPR does apply to ML systems processing personal data. Deleting source files doesn't remove learned patterns from model weights.", "multi": false, "domain": 5}, {"num": 116, "source": "Exam 1", "text": "A company wants to log and monitor all interactions with their Amazon Bedrock application for compliance and security analysis. Which approach provides comprehensive logging of model invocations including prompts and responses?", "options": [{"letter": "A", "text": "Checking the model's training logs"}, {"letter": "B", "text": "Only monitoring CPU utilization of the service"}, {"letter": "C", "text": "Relying solely on AWS billing reports"}, {"letter": "D", "text": "Amazon Bedrock model invocation logging to S3 and CloudWatch Logs"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nBedrock model invocation logging captures full request and response data (including prompts and completions) and sends them to S3 and/or CloudWatch Logs for compliance auditing. CPU utilization is an infrastructure metric. Billing reports show costs, not content. Training logs are from model development, not runtime invocations.", "multi": false, "domain": 5}, {"num": 117, "source": "Exam 1", "text": "A security architect is designing the network architecture for their SageMaker deployment. They need to ensure that training instances can download packages from the internet for dependencies while keeping the model endpoint completely isolated. Which architecture achieves this?", "options": [{"letter": "A", "text": "Use a VPC with NAT Gateway for training instances' internet access and VPC endpoints for endpoint isolation"}, {"letter": "B", "text": "Place all resources in public subnets with unrestricted security groups"}, {"letter": "C", "text": "Disable all networking for both training and endpoints"}, {"letter": "D", "text": "Use the same security group for all resources with all ports open"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nA NAT Gateway allows training instances in private subnets to access the internet for dependencies without being directly accessible. VPC endpoints keep inference traffic private. Public subnets with open security groups expose everything. Disabling networking prevents all operations. Open security groups violate least-privilege principles.", "multi": false, "domain": 5}, {"num": 118, "source": "Exam 1", "text": "A company has multiple AWS accounts and wants to centrally manage which foundation models their teams can access through Amazon Bedrock. Which approach provides centralized governance across accounts?", "options": [{"letter": "A", "text": "AWS Organizations with Service Control Policies (SCPs) restricting Bedrock model access"}, {"letter": "B", "text": "Letting each team manage their own permissions independently"}, {"letter": "C", "text": "Using a single shared AWS account for all teams"}, {"letter": "D", "text": "Disabling IAM entirely and using only root credentials"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nAWS Organizations with SCPs provides centralized governance by defining permission boundaries across all member accounts, allowing administrators to restrict which Bedrock models can be accessed organization-wide. Independent management lacks central control. A single shared account creates security risks. Disabling IAM or using root credentials violates security best practices.", "multi": false, "domain": 5}, {"num": 119, "source": "Exam 1", "text": "A development team is using Amazon Bedrock in production and wants to be alerted when the model's response patterns change significantly or when unusual usage patterns emerge that might indicate a security breach. Which monitoring approach is MOST appropriate?", "options": [{"letter": "A", "text": "Checking logs manually once per year"}, {"letter": "B", "text": "Relying on end users to report issues"}, {"letter": "C", "text": "Only monitoring the monthly AWS bill"}, {"letter": "D", "text": "Setting up Amazon CloudWatch alarms on Bedrock metrics combined with CloudTrail anomaly detection"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nCloudWatch alarms can trigger on Bedrock operational metrics (invocation counts, latency, errors) while CloudTrail monitors for unusual API call patterns indicating potential security issues. Manual yearly checks miss real-time threats. Bill monitoring is too delayed for security. Relying on users misses backend attacks.", "multi": false, "domain": 5}, {"num": 120, "source": "Exam 1", "text": "A company is building an AI application that processes customer data from multiple countries. Their compliance team requires that they can demonstrate exactly what data was used to train or fine-tune their models, how it was processed, and where it is stored at any point in time. Which combination of AWS capabilities supports this data governance requirement? (Select TWO)", "options": [{"letter": "A", "text": "Amazon S3 versioning and object lock for immutable training data records"}, {"letter": "B", "text": "Deleting all logs after model training completes"}, {"letter": "C", "text": "SageMaker ML Lineage Tracking for end-to-end data and model provenance"}, {"letter": "D", "text": "Using untagged resources without any naming conventions"}, {"letter": "E", "text": "Disabling AWS CloudTrail to reduce storage costs"}], "correct": ["A", "C"], "explanation": "<strong>Explanation:</strong>\nS3 versioning with object lock creates immutable records of training data at each point in time. SageMaker ML Lineage Tracking automatically records the relationships between datasets, processing steps, training jobs, and models for full provenance. Deleting logs destroys audit evidence. Untagged resources make tracking impossible. Disabling CloudTrail eliminates API audit trails.", "multi": true, "domain": 5}, {"num": 1, "source": "Exam 2", "text": "Which AWS AI service can you use to analyze medical images (e.g., X-rays, CT scans) to detect anomalies or specific medical conditions?", "options": [{"letter": "A", "text": "Amazon Comprehend Medical"}, {"letter": "B", "text": "Amazon Rekognition"}, {"letter": "C", "text": "Amazon Rekognition Medical"}, {"letter": "D", "text": "Amazon HealthLake"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nWhile Amazon Rekognition handles general image analysis, Amazon Rekognition Medical is a specialized service designed to detect anomalies in medical images, such as X-rays, CT scans, and ultrasounds, using machine learning. Amazon Comprehend Medical is for text analysis, and HealthLake is a HIPAA-eligible service for storing and analyzing health data, not image analysis directly.", "multi": false, "domain": 5}, {"num": 6, "source": "Exam 2", "text": "Which AWS service is specifically designed to detect and identify \"personally identifiable information\" (PII) like names, addresses, and account numbers within blocks of text, often used for data anonymization or compliance?", "options": [{"letter": "A", "text": "Amazon Macie"}, {"letter": "B", "text": "Amazon Comprehend"}, {"letter": "C", "text": "Amazon Textract"}, {"letter": "D", "text": "Amazon Translate"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nAmazon Comprehend includes a specialized PII detection API that can identify and categorize various types of sensitive information (PII) within unstructured text. This feature is crucial for compliance with privacy regulations and for redacting or anonymizing data. Amazon Macie is for discovering and protecting sensitive data in S3 buckets, but Comprehend handles PII detection within text content itself.", "multi": false, "domain": 5}, {"num": 14, "source": "Exam 2", "text": "A media company needs to automatically detect and flag inappropriate content in user-generated images and videos before they are published. Which AWS service is best suited for this task?", "options": [{"letter": "A", "text": "Amazon Comprehend"}, {"letter": "B", "text": "Amazon Rekognition"}, {"letter": "C", "text": "Amazon Textract"}, {"letter": "D", "text": "Amazon Polly"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nAmazon Rekognition offers robust content moderation capabilities for images and videos. It can detect explicit, suggestive, violent, or generally unsafe content, helping businesses to automatically review and filter user-generated media for compliance and safety.", "multi": false, "domain": 5}, {"num": 17, "source": "Exam 2", "text": "What is the primary purpose of \"data labeling\" in the context of supervised machine learning?", "options": [{"letter": "A", "text": "To split data into training, validation, and test sets."}, {"letter": "B", "text": "To assign meaningful tags or annotations to raw data (e.g., bounding boxes for objects, sentiment for text)."}, {"letter": "C", "text": "To reduce the dimensionality of the dataset."}, {"letter": "D", "text": "To encrypt data for security purposes."}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nData labeling (or data annotation) is the process of adding descriptive tags or labels to raw data. In supervised learning, this is crucial because models learn by identifying patterns between input data and its corresponding correct output label. Examples include drawing bounding boxes around objects in images, transcribing audio, or marking sentiment in text.", "multi": false, "domain": 5}, {"num": 82, "source": "Exam 2", "text": "What is the primary purpose of \"data augmentation\" in machine learning, especially in computer vision tasks?", "options": [{"letter": "A", "text": "To increase the size and diversity of the training dataset by creating modified versions of existing data."}, {"letter": "B", "text": "To reduce the dimensionality of the input features."}, {"letter": "C", "text": "To encrypt the training data for security."}, {"letter": "D", "text": "To split the dataset into training and testing sets."}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nData augmentation is a technique used to expand the training dataset by creating new, slightly altered copies of existing data. For computer vision, this might involve rotations, flips, zooms, or color adjustments. It helps prevent overfitting and improves the model's ability to generalize to new data.", "multi": false, "domain": 5}, {"num": 117, "source": "Exam 2", "text": "What is the primary role of \"AWS Identity and Access Management (IAM)\" in securing AWS AI services?", "options": [{"letter": "A", "text": "To encrypt all data processed by AI services."}, {"letter": "B", "text": "To monitor the performance and health of AI service endpoints."}, {"letter": "C", "text": "To manage billing and cost allocation for AI services."}, {"letter": "D", "text": "To control who can access and use AWS AI services and resources."}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nAWS IAM is fundamental for security. It allows you to manage access to AWS services and resources securely. With IAM, you can define users, groups, and roles, and attach policies that grant or deny specific permissions (e.g., calling Rekognition APIs, accessing S3 buckets where data for AI services is stored).", "multi": false, "domain": 5}];
+const TOTAL = QUESTIONS.length;
+let answeredCount = 0;
+let correctCount  = 0;
+
+function escHtml(s) {
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function buildQuiz() {
+  const container = document.getElementById("questions");
+  QUESTIONS.forEach((q, idx) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+    card.id = "q" + idx;
+    const multiBadge = q.multi ? "<span class=\"multi-badge\">Select 2</span>" : "";
+    const srcBadge   = "<span class=\"q-source\">" + escHtml(q.source) + "</span>";
+    card.innerHTML = `
+      <div class="q-header">
+        <span class="q-num">Q${q.num}</span>
+        ${srcBadge}
+        <span class="q-text">${escHtml(q.text)}${multiBadge}</span>
+      </div>
+      <div class="options" id="opts_${idx}">
+        ${q.options.map(o =>
+          "<label class=\"option-label\" id=\"lbl_" + idx + "_" + o.letter + "\">" +
+          "<input type=\"" + (q.multi ? "checkbox" : "radio") + "\" name=\"q" + idx + "\" value=\"" + o.letter + "\" />" +
+          "<span class=\"letter\">" + o.letter + ")</span>" +
+          "<span>" + escHtml(o.text) + "</span>" +
+          "</label>"
+        ).join("")}
+      </div>
+      <button class="submit-btn" onclick="submitAnswer(${idx})">Check Answer</button>
+      <div id="badge_${idx}" style="margin-top:12px;"></div>
+      <details class="explanation" id="exp_${idx}">
+        <summary>&#x1F4A1; Explanation</summary>
+        <div class="explanation-body">${q.explanation}</div>
+      </details>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function getSelected(idx) {
+  return Array.from(document.querySelectorAll("[name=\"q" + idx + "\"]:checked")).map(i => i.value);
+}
+
+function submitAnswer(idx) {
+  const q = QUESTIONS[idx];
+  const selected = getSelected(idx);
+  if (!selected.length) return;
+
+  document.querySelectorAll("[name=\"q" + idx + "\"]").forEach(i => i.disabled = true);
+  document.querySelector("#q" + idx + " .submit-btn").disabled = true;
+
+  q.options.forEach(o => {
+    const lbl = document.getElementById("lbl_" + idx + "_" + o.letter);
+    lbl.classList.add("disabled");
+    if (q.correct.includes(o.letter)) lbl.classList.add("correct");
+    else if (selected.includes(o.letter)) lbl.classList.add("wrong");
+  });
+
+  const correctSet  = new Set(q.correct);
+  const selectedSet = new Set(selected);
+  let result;
+  if (q.multi) {
+    const allCorrect = q.correct.every(l => selectedSet.has(l)) && selected.every(l => correctSet.has(l));
+    result = allCorrect ? "correct" : (q.correct.some(l => selectedSet.has(l)) ? "partial" : "wrong");
+  } else {
+    result = (selected.length === 1 && selected[0] === q.correct[0]) ? "correct" : "wrong";
+  }
+
+  const badge = document.getElementById("badge_" + idx);
+  const corrStr = q.correct.join(", ");
+  if (result === "correct") {
+    badge.innerHTML = "<span class=\"result-badge correct\">&#x2713; Correct!</span>";
+    document.getElementById("q" + idx).classList.add("answered-correct");
+    correctCount++;
+  } else if (result === "partial") {
+    badge.innerHTML = "<span class=\"result-badge partial\">Partially Correct — full answer: " + corrStr + "</span>";
+    document.getElementById("q" + idx).classList.add("answered-partial");
+  } else {
+    badge.innerHTML = "<span class=\"result-badge wrong\">&#x2717; Incorrect — correct: " + corrStr + "</span>";
+    document.getElementById("q" + idx).classList.add("answered-wrong");
+  }
+
+  document.getElementById("exp_" + idx).setAttribute("open", "");
+  answeredCount++;
+  updateProgress();
+  if (answeredCount === TOTAL) showScore();
+}
+
+function updateProgress() {
+  document.getElementById("progress-bar").style.width = (answeredCount / TOTAL * 100) + "%";
+  document.getElementById("progress-text").textContent = answeredCount + " / " + TOTAL + " answered";
+}
+
+function showScore() {
+  const panel = document.getElementById("score-panel");
+  panel.style.display = "block";
+  document.getElementById("score-correct").textContent = correctCount;
+  const pct = Math.round(correctCount / TOTAL * 100);
+  document.getElementById("score-pct").textContent = "out of " + TOTAL + " questions (" + pct + "%)";
+  let grade;
+  if (pct >= 90)      grade = "Excellent — strong domain mastery!";
+  else if (pct >= 75) grade = "Good — review your misses and try again.";
+  else if (pct >= 60) grade = "Needs work — spend more time on this domain.";
+  else                grade = "Focus here — this domain needs significant study.";
+  document.getElementById("score-grade").textContent = grade;
+  panel.scrollIntoView({ behavior: "smooth" });
+}
+
+buildQuiz();
+updateProgress();
+</script>
+</body>
+</html>

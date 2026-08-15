@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Domain 4: Guidelines for Responsible AI</title>
+<style>
+  :root {
+    --accent:  #E65100;
+    --navy:    #232F3E;
+    --correct-bg: #d4edda; --correct-border: #28a745;
+    --wrong-bg:   #f8d7da; --wrong-border:   #dc3545;
+    --neutral-bg: #f4f6f8; --card-bg: #ffffff;
+    --radius: 10px; --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          background: var(--neutral-bg); color: #222; line-height: 1.6; }
+
+  header {
+    background: var(--navy); color: #fff; padding: 16px 24px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+  header h1 { font-size: 1rem; font-weight: 700; }
+  header h1 span { color: #E65100; }
+  .header-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; flex-wrap: wrap; gap: 8px; }
+  #progress-bar-wrap { flex: 1; background: rgba(255,255,255,0.2); border-radius: 4px; height: 6px; min-width: 120px; }
+  #progress-bar { height: 6px; border-radius: 4px; background: #E65100; transition: width 0.3s; width: 0%; }
+  #progress-text { font-size: 0.8rem; color: #ccc; white-space: nowrap; }
+  .back-link { font-size: 0.8rem; color: #aaa; text-decoration: none; margin-right: 12px; }
+  .back-link:hover { color: #fff; }
+
+  main { max-width: 860px; margin: 28px auto; padding: 0 16px 60px; }
+
+  .domain-badge {
+    display: inline-block; background: #E65100; color: #fff;
+    border-radius: 6px; padding: 6px 16px; font-size: 0.85rem;
+    font-weight: 700; margin-bottom: 24px;
+  }
+
+  .question-card {
+    background: var(--card-bg); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 24px; margin-bottom: 28px;
+    border-left: 5px solid #ddd; transition: border-color 0.3s;
+  }
+  .question-card.answered-correct { border-left-color: var(--correct-border); }
+  .question-card.answered-wrong   { border-left-color: var(--wrong-border); }
+  .question-card.answered-partial { border-left-color: #E65100; }
+
+  .q-header { display: flex; gap: 12px; align-items: baseline; margin-bottom: 14px; flex-wrap: wrap; }
+  .q-num {
+    font-size: 0.72rem; font-weight: 700; background: var(--navy);
+    color: #fff; padding: 2px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+  }
+  .q-source {
+    font-size: 0.68rem; color: #888; background: #eee;
+    padding: 1px 7px; border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+  }
+  .q-text { font-size: 0.97rem; font-weight: 600; line-height: 1.5; }
+  .multi-badge {
+    font-size: 0.7rem; background: #E65100; color: #fff;
+    border-radius: 4px; padding: 1px 6px; margin-left: 6px;
+    font-weight: 600; white-space: nowrap;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .option-label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border: 2px solid #e0e0e0; border-radius: 8px;
+    cursor: pointer; transition: border-color 0.15s, background 0.15s; font-size: 0.92rem;
+  }
+  .option-label:hover { border-color: #E65100; background: #f5f5ff; }
+  .option-label input { flex-shrink: 0; margin-top: 3px; accent-color: #E65100; }
+  .option-label .letter { font-weight: 700; color: var(--navy); flex-shrink: 0; min-width: 22px; }
+  .option-label.correct { border-color: var(--correct-border); background: var(--correct-bg); }
+  .option-label.wrong   { border-color: var(--wrong-border);   background: var(--wrong-bg); }
+  .option-label.disabled { cursor: default; pointer-events: none; }
+  .option-label.correct::after { content: " ✓"; color: var(--correct-border); font-weight: 700; }
+  .option-label.wrong::after   { content: " ✗"; color: var(--wrong-border);   font-weight: 700; }
+
+  .submit-btn {
+    display: inline-block; padding: 9px 22px; background: var(--navy);
+    color: #fff; border: none; border-radius: 6px; font-size: 0.9rem;
+    font-weight: 600; cursor: pointer; transition: background 0.2s;
+  }
+  .submit-btn:hover { background: #E65100; }
+  .submit-btn:disabled { background: #aaa; cursor: default; }
+
+  .result-badge {
+    display: inline-block; font-size: 0.8rem; font-weight: 700;
+    padding: 2px 10px; border-radius: 12px; margin-bottom: 12px;
+  }
+  .result-badge.correct { background: var(--correct-bg); color: var(--correct-border); border: 1px solid var(--correct-border); }
+  .result-badge.wrong   { background: var(--wrong-bg);   color: var(--wrong-border);   border: 1px solid var(--wrong-border); }
+  .result-badge.partial { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+
+  .explanation { margin-top: 16px; border-radius: 8px; border: 1px solid #d0d0d0; overflow: hidden; }
+  .explanation summary {
+    list-style: none; padding: 10px 16px; background: #f0f0f0;
+    cursor: pointer; font-size: 0.88rem; font-weight: 600;
+    display: flex; align-items: center; gap: 8px; user-select: none;
+  }
+  .explanation summary::-webkit-details-marker { display: none; }
+  .explanation summary::before { content: "▶"; font-size: 0.7rem; transition: transform 0.2s; }
+  .explanation[open] summary::before { transform: rotate(90deg); }
+  .explanation-body {
+    padding: 14px 16px; font-size: 0.9rem; line-height: 1.65;
+    background: #fafafa; border-top: 1px solid #d0d0d0;
+  }
+
+  #score-panel {
+    display: none; background: var(--navy); color: #fff;
+    border-radius: var(--radius); padding: 32px; text-align: center;
+    margin-bottom: 40px; box-shadow: var(--shadow);
+  }
+  #score-panel h2 { font-size: 1.4rem; margin-bottom: 8px; }
+  .score-num { font-size: 3rem; font-weight: 900; color: #E65100; }
+  .score-pct { font-size: 1rem; color: #ccc; margin-bottom: 16px; }
+  .score-grade { font-size: 1rem; }
+
+  @media (max-width: 600px) {
+    header { padding: 12px 14px; }
+    .question-card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1><span>Domain 4: Guidelines for Responsible AI</span></h1>
+    <div class="header-meta">
+      <div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+      <span id="progress-text">0 / 38 answered</span>
+    </div>
+  </div>
+</header>
+<main>
+  <div id="score-panel">
+    <h2>Domain Complete!</h2>
+    <div class="score-num" id="score-correct">0</div>
+    <div class="score-pct" id="score-pct">out of 38 questions</div>
+    <div class="score-grade" id="score-grade"></div>
+  </div>
+  <div id="questions"></div>
+</main>
+<script>
+const QUESTIONS = [{"num": 16, "source": "Exam 1", "text": "A data scientist is evaluating a regression model that predicts house prices. Which metric is MOST appropriate for measuring how far predictions deviate from actual values in the same unit as the target variable?", "options": [{"letter": "A", "text": "AUC-ROC"}, {"letter": "B", "text": "F1 Score"}, {"letter": "C", "text": "Root Mean Squared Error (RMSE)"}, {"letter": "D", "text": "Log loss"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nRMSE measures prediction error in the same units as the target variable (dollars for house prices), making it directly interpretable. AUC-ROC and F1 Score are classification metrics, not applicable to regression. Log loss measures probability calibration for classification tasks, not regression prediction accuracy.", "multi": false, "domain": 4}, {"num": 37, "source": "Exam 1", "text": "A team is selecting a foundation model on Amazon Bedrock for their customer service chatbot. The chatbot needs to provide accurate, factual responses and minimize creative embellishment. Which configuration approach is MOST appropriate?", "options": [{"letter": "A", "text": "Set temperature to maximum (1.0) for diverse responses"}, {"letter": "B", "text": "Use a large top-p value (0.99) to maximize vocabulary usage"}, {"letter": "C", "text": "Disable all safety guardrails for unrestricted output"}, {"letter": "D", "text": "Set a low temperature (close to 0) for deterministic, focused responses"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nA low temperature makes the model more deterministic by sharpening the probability distribution, causing it to select the most likely (and typically most factual) tokens. High temperature increases randomness and creativity. A high top-p allows too many unlikely tokens. Disabling guardrails is a safety concern unrelated to factual accuracy.", "multi": false, "domain": 4}, {"num": 43, "source": "Exam 1", "text": "A company wants to make their pre-trained LLM better at following specific formatting instructions and refusing harmful requests. Which post-training technique specifically addresses instruction following and alignment?", "options": [{"letter": "A", "text": "Continued pre-training with more web data"}, {"letter": "B", "text": "Instruction tuning with curated prompt-response pairs"}, {"letter": "C", "text": "Reducing the model's parameter count"}, {"letter": "D", "text": "Increasing the tokenizer's vocabulary size"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nInstruction tuning fine-tunes a model on carefully curated datasets of instructions paired with desired responses, teaching the model to follow formatting requirements, answer questions helpfully, and refuse harmful requests. Continued pre-training adds general knowledge but not instruction-following ability. Reducing parameters or changing tokenizer vocabulary don't improve alignment.", "multi": false, "domain": 4}, {"num": 46, "source": "Exam 1", "text": "A developer is designing a prompt for an LLM to extract structured data from unstructured text. Which prompt engineering best practice would MOST improve extraction accuracy?", "options": [{"letter": "A", "text": "Making the prompt as short as possible with no context"}, {"letter": "B", "text": "Asking the model to be creative in its response format"}, {"letter": "C", "text": "Providing a clear output schema/format specification with examples of the expected JSON structure"}, {"letter": "D", "text": "Using maximum temperature for diverse interpretations"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nFor structured data extraction, providing explicit output format specifications with examples ensures the model understands exactly what structure to produce. Short prompts without context lead to ambiguous outputs. Encouraging creativity produces inconsistent formats. High temperature introduces randomness that harms extraction precision.", "multi": false, "domain": 4}, {"num": 68, "source": "Exam 1", "text": "A data scientist is using Amazon Bedrock to evaluate different foundation models for a summarization task. They want to objectively compare model outputs across multiple dimensions. Which Amazon Bedrock feature supports automated and human model evaluation?", "options": [{"letter": "A", "text": "Amazon Bedrock Model Evaluation"}, {"letter": "B", "text": "Amazon Bedrock Knowledge Bases"}, {"letter": "C", "text": "Amazon Bedrock Guardrails"}, {"letter": "D", "text": "Amazon Bedrock Provisioned Throughput"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nBedrock Model Evaluation enables both automatic evaluation (using metrics like accuracy, robustness, toxicity) and human evaluation workflows to compare foundation model outputs for specific use cases. Guardrails filter content. Knowledge Bases implement RAG. Provisioned Throughput reserves model capacity for consistent performance.", "multi": false, "domain": 4}, {"num": 71, "source": "Exam 1", "text": "A developer wants to implement a safeguard that prevents their Bedrock-powered application from responding to requests about topics unrelated to their business (e.g., political opinions, medical advice). Which Bedrock Guardrails feature addresses this?", "options": [{"letter": "A", "text": "Content filters for harmful content categories"}, {"letter": "B", "text": "Word-level filters for profanity"}, {"letter": "C", "text": "PII detection and redaction"}, {"letter": "D", "text": "Denied topic policies that block specified off-topic subjects"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nDenied topic policies in Bedrock Guardrails allow you to define specific topics the model should refuse to discuss, keeping conversations focused on relevant business subjects. Content filters handle harmful content categories (hate, violence). PII detection handles personal data. Word filters block specific terms, not topic areas.", "multi": false, "domain": 4}, {"num": 72, "source": "Exam 1", "text": "A company is building a customer-facing AI application with Amazon Bedrock. They need to ensure responses don't contain any personally identifiable information (PII) like phone numbers or email addresses. Which Bedrock Guardrails capability should they configure?", "options": [{"letter": "A", "text": "Topic filtering policies"}, {"letter": "B", "text": "Custom word lists"}, {"letter": "C", "text": "Content filters for hate speech"}, {"letter": "D", "text": "Sensitive information filters with PII detection and redaction"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nBedrock Guardrails' sensitive information filters can detect and redact PII types such as phone numbers, email addresses, SSNs, and other personal data from both inputs and outputs. Topic filtering blocks subjects. Content filters handle harmful categories. Word lists block specific terms but aren't intelligent about PII patterns.", "multi": false, "domain": 4}, {"num": 85, "source": "Exam 1", "text": "A team is deploying a generative AI application and wants to implement content moderation that scans both user inputs and model outputs for harmful content. They need to filter hate speech, violence, and sexual content. Which approach provides the MOST integrated solution on AWS?", "options": [{"letter": "A", "text": "Building a custom classification model from scratch for each content category"}, {"letter": "B", "text": "Manually reviewing all inputs and outputs before displaying them"}, {"letter": "C", "text": "Configuring Amazon Bedrock Guardrails with content filter policies for specific harm categories"}, {"letter": "D", "text": "Blocking all requests that contain more than 100 words"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nBedrock Guardrails provides built-in content filters that can be configured for specific harm categories (hate, insults, sexual, violence, misconduct) with adjustable strength levels, applied to both inputs and outputs. Building custom models is costly and complex. Manual review doesn't scale. Word count limits don't identify harmful content.", "multi": false, "domain": 4}, {"num": 88, "source": "Exam 1", "text": "A company has deployed a loan approval ML model and discovers it disproportionately denies applications from certain demographic groups, even when applicants have similar financial profiles. What is this type of issue called in responsible AI?", "options": [{"letter": "A", "text": "Model drift"}, {"letter": "B", "text": "Feature leakage"}, {"letter": "C", "text": "Underfitting"}, {"letter": "D", "text": "Algorithmic bias leading to disparate impact"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nDisparate impact occurs when a model's decisions disproportionately affect protected demographic groups negatively, even without explicit discriminatory intent. This is a form of algorithmic bias. Model drift refers to performance degradation over time. Underfitting is when models are too simple. Feature leakage is when test data information leaks into training.", "multi": false, "domain": 4}, {"num": 89, "source": "Exam 1", "text": "A healthcare company is using an ML model to assist doctors in diagnosing diseases. They need to explain to patients why the model made a specific recommendation. Which tool in the AWS ecosystem helps generate explanations for individual model predictions?", "options": [{"letter": "A", "text": "Amazon SageMaker Clarify"}, {"letter": "B", "text": "Amazon SageMaker Model Monitor"}, {"letter": "C", "text": "Amazon SageMaker Data Wrangler"}, {"letter": "D", "text": "Amazon SageMaker Autopilot"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nSageMaker Clarify provides model explainability through SHAP values and feature attribution, showing which factors influenced specific predictions. It also detects bias in data and models. Model Monitor tracks data quality and drift. Data Wrangler prepares data. Autopilot automates model building but doesn't focus on explanations.", "multi": false, "domain": 4}, {"num": 90, "source": "Exam 1", "text": "A financial services company wants to ensure their AI credit scoring model treats all applicants fairly. They need to measure whether the model's approval rates are equal across different demographic groups. Which fairness metric specifically measures this?", "options": [{"letter": "A", "text": "Root Mean Squared Error"}, {"letter": "B", "text": "AUC-ROC"}, {"letter": "C", "text": "Demographic parity (statistical parity)"}, {"letter": "D", "text": "Perplexity"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nDemographic parity measures whether the positive prediction rate (e.g., loan approval rate) is equal across different demographic groups. RMSE measures regression error. AUC-ROC measures overall model discrimination ability. Perplexity evaluates language model quality. None of these other metrics directly assess fairness across groups.", "multi": false, "domain": 4}, {"num": 91, "source": "Exam 1", "text": "A company is deploying an AI system for hiring recommendations. To maintain accountability and transparency, their legal team requires documentation of the model's intended use, limitations, evaluation results, and ethical considerations. What type of document serves this purpose?", "options": [{"letter": "A", "text": "API documentation"}, {"letter": "B", "text": "Service level agreement"}, {"letter": "C", "text": "User manual"}, {"letter": "D", "text": "Model card"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nModel cards are standardized documents that describe a model's intended use cases, limitations, evaluation metrics, training data characteristics, ethical considerations, and potential biases. They promote transparency and informed decision-making. API documentation covers technical interfaces. User manuals guide end users. SLAs define service guarantees.", "multi": false, "domain": 4}, {"num": 92, "source": "Exam 1", "text": "A team has deployed an AI content moderation system that makes automated decisions about removing user posts. Some users have complained about incorrect removals. Which responsible AI principle suggests that affected users should have a mechanism to challenge and appeal automated decisions?", "options": [{"letter": "A", "text": "Feature engineering"}, {"letter": "B", "text": "Gradient descent optimization"}, {"letter": "C", "text": "Human-in-the-loop and contestability"}, {"letter": "D", "text": "Data augmentation"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nHuman-in-the-loop ensures humans can review, override, and appeal automated decisions, particularly for high-stakes cases. Contestability gives affected individuals the ability to challenge AI decisions. Feature engineering is a data preparation technique. Gradient descent is an optimization algorithm. Data augmentation increases training data variety.", "multi": false, "domain": 4}, {"num": 93, "source": "Exam 1", "text": "A data scientist wants to understand why their image classification model misclassifies certain images. They need a technique that highlights which regions of the input image most influenced the model's prediction. Which explainability method provides visual explanations for image models?", "options": [{"letter": "A", "text": "Confusion matrix"}, {"letter": "B", "text": "One-hot encoding visualization"}, {"letter": "C", "text": "LIME (Local Interpretable Model-agnostic Explanations) with image superpixels"}, {"letter": "D", "text": "ROC curve analysis"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nLIME for images perturbs superpixels (regions) of the input and observes changes in prediction, creating visual explanations showing which image regions most influenced the classification. One-hot encoding is a feature representation method. Confusion matrices show aggregate performance. ROC curves measure threshold trade-offs, none of which explain individual image predictions.", "multi": false, "domain": 4}, {"num": 94, "source": "Exam 1", "text": "A company is building an AI-powered resume screening tool. During testing, they discover the model penalizes resumes that mention women's colleges or women's sports leagues. Which steps should they take to address this bias? (Select TWO)", "options": [{"letter": "A", "text": "Deploy the model immediately since it has high overall accuracy"}, {"letter": "B", "text": "Audit training data for historical hiring biases and remove or rebalance biased examples"}, {"letter": "C", "text": "Ignore the issue since the model wasn't explicitly programmed to be biased"}, {"letter": "D", "text": "Implement bias detection using SageMaker Clarify and retrain with debiased data"}, {"letter": "E", "text": "Add more biased data to make the bias consistent"}], "correct": ["B", "D"], "explanation": "<strong>Explanation:</strong>\nAddressing bias requires both identifying the source (auditing training data for historical biases) and implementing systematic detection (SageMaker Clarify) followed by remediation. High accuracy doesn't excuse discriminatory outcomes. Bias doesn't require explicit programming - it often comes from historical data patterns. Adding more biased data worsens the problem.", "multi": true, "domain": 4}, {"num": 95, "source": "Exam 1", "text": "A company is developing an AI system that makes medical treatment recommendations. Which responsible AI principle requires that patients and doctors understand how and why the system arrived at its recommendation?", "options": [{"letter": "A", "text": "Scalability"}, {"letter": "B", "text": "Transparency and explainability"}, {"letter": "C", "text": "Cost optimization"}, {"letter": "D", "text": "Data compression"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nTransparency requires that AI systems' decision-making processes be understandable to stakeholders, especially in high-stakes domains like healthcare. Explainability provides the mechanisms to understand specific decisions. Scalability, cost optimization, and data compression are technical concerns unrelated to responsible AI principles.", "multi": false, "domain": 4}, {"num": 96, "source": "Exam 1", "text": "A team is using Amazon SageMaker Clarify to evaluate their model for bias. Which types of bias can SageMaker Clarify detect? (Select TWO)", "options": [{"letter": "A", "text": "Pre-training bias in the training dataset (before model training)"}, {"letter": "B", "text": "Hardware manufacturing bias in GPU chips"}, {"letter": "C", "text": "Post-training bias in model predictions (after model training)"}, {"letter": "D", "text": "Network latency bias in API responses"}, {"letter": "E", "text": "Storage bias in S3 bucket configurations"}], "correct": ["A", "C"], "explanation": "<strong>Explanation:</strong>\nSageMaker Clarify detects pre-training bias (imbalances in training data before model training) and post-training bias (unfair predictions after the model is trained). It analyzes data distributions and model outputs across groups. Hardware, network, and storage biases are infrastructure concepts unrelated to ML fairness.", "multi": true, "domain": 4}, {"num": 97, "source": "Exam 1", "text": "A company is designing an AI-powered customer service chatbot for a diverse global audience. Which inclusive design principle should guide the development of this system?", "options": [{"letter": "A", "text": "Designing only for the majority demographic to maximize efficiency"}, {"letter": "B", "text": "Testing with diverse user groups and ensuring equitable performance across languages, accents, and cultural contexts"}, {"letter": "C", "text": "Using only English language training data since it's the most common business language"}, {"letter": "D", "text": "Optimizing exclusively for response speed regardless of accuracy across demographics"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nInclusive design requires considering diverse users from the start, testing with representative populations, and ensuring equitable performance regardless of language, culture, or ability. Designing for only the majority excludes significant populations. English-only ignores global users. Speed without equitable accuracy creates disparate service quality.", "multi": false, "domain": 4}, {"num": 99, "source": "Exam 1", "text": "A company is deploying a facial recognition system and is concerned about disparate performance across different skin tones and ethnicities. Which responsible AI practice should they implement BEFORE deployment?", "options": [{"letter": "A", "text": "Deploy first and address complaints as they arise"}, {"letter": "B", "text": "Focus solely on overall accuracy without subgroup analysis"}, {"letter": "C", "text": "Only test with synthetic data generated by AI"}, {"letter": "D", "text": "Evaluate model performance across demographic subgroups and ensure equitable accuracy rates"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nPre-deployment evaluation across demographic subgroups (disaggregated evaluation) identifies performance disparities before they cause harm. Deploying first and waiting for complaints causes real-world harm. Synthetic data may not represent real demographic diversity. Overall accuracy can mask significant performance gaps between subgroups.", "multi": false, "domain": 4}, {"num": 100, "source": "Exam 1", "text": "A team has deployed an AI system that autonomously makes decisions affecting people's lives (insurance claims, bail decisions). Which governance framework principle requires that there always be a designated person or entity responsible for the AI system's outcomes?", "options": [{"letter": "A", "text": "Accountability"}, {"letter": "B", "text": "Feature importance"}, {"letter": "C", "text": "Gradient optimization"}, {"letter": "D", "text": "Tokenization"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nAccountability in AI governance requires clear designation of who is responsible for the AI system's decisions and their impacts. It ensures that humans cannot abdicate responsibility by attributing decisions solely to an algorithm. Feature importance, gradient optimization, and tokenization are technical ML concepts unrelated to governance principles.", "multi": false, "domain": 4}, {"num": 101, "source": "Exam 1", "text": "A company wants to implement responsible AI practices for their generative AI application. They need to prevent the model from generating harmful, biased, or inappropriate content in production. Which layered approach provides the MOST comprehensive protection?", "options": [{"letter": "A", "text": "Relying solely on the model's built-in training alignment"}, {"letter": "B", "text": "Only implementing output filtering and ignoring input validation"}, {"letter": "C", "text": "Combining model alignment, input/output guardrails, content filtering, and human review for edge cases"}, {"letter": "D", "text": "Asking users to self-moderate their interactions"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nA defense-in-depth approach layers multiple safeguards: model alignment during training, runtime guardrails for both inputs and outputs, content filtering rules, and human review for challenging cases. No single layer is sufficient alone. Relying only on training alignment misses adversarial prompts. Output-only filtering misses harmful inputs. User self-moderation is unreliable.", "multi": false, "domain": 4}, {"num": 102, "source": "Exam 1", "text": "A machine learning team wants to document their model's limitations and appropriate use cases to prevent misuse. According to responsible AI best practices, which information should be included in their model documentation? (Select TWO)", "options": [{"letter": "A", "text": "The exact salary of each team member who built the model"}, {"letter": "B", "text": "Known limitations, failure modes, and populations where the model may not perform well"}, {"letter": "C", "text": "Intended use cases and explicitly out-of-scope applications"}, {"letter": "D", "text": "Competitors' proprietary model architectures"}, {"letter": "E", "text": "Personal information of the training data subjects"}], "correct": ["B", "C"], "explanation": "<strong>Explanation:</strong>\nResponsible model documentation should clearly state known limitations and failure modes so users understand risks, and define intended vs. out-of-scope use cases to prevent misuse. Team salaries are private HR information. Competitors' architectures are proprietary. Including personal data of training subjects would violate privacy.", "multi": true, "domain": 4}, {"num": 103, "source": "Exam 1", "text": "A company is developing an AI system for automated content generation. They want to ensure users can always distinguish between AI-generated content and human-created content. Which responsible AI principle does this represent?", "options": [{"letter": "A", "text": "Cost efficiency"}, {"letter": "B", "text": "Model compression"}, {"letter": "C", "text": "Transparency through AI content disclosure and watermarking"}, {"letter": "D", "text": "Distributed computing"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nTransparency in generative AI includes disclosing when content is AI-generated, potentially through watermarking or explicit labeling, so users can make informed judgments about the content's origin and reliability. Cost efficiency, model compression, and distributed computing are technical implementation concerns unrelated to responsible AI disclosure.", "multi": false, "domain": 4}, {"num": 104, "source": "Exam 1", "text": "A healthcare AI company is implementing responsible AI governance. Their model assists in diagnosing rare diseases, but the team acknowledges the model has a 15% error rate for certain rare conditions. Which responsible AI practice should guide their deployment decision?", "options": [{"letter": "A", "text": "Implement human-in-the-loop oversight where clinicians validate AI suggestions before acting, and clearly communicate the model's limitations"}, {"letter": "B", "text": "Deploy without disclosure since 85% accuracy is sufficient"}, {"letter": "C", "text": "Remove the model from all medical use cases entirely"}, {"letter": "D", "text": "Only deploy in regions where medical regulations don't apply"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nFor high-stakes medical decisions with known error rates, human-in-the-loop ensures qualified professionals validate AI recommendations before patient action, while communicating limitations enables informed use. Deploying without disclosure is irresponsible. Complete removal may deny patients a useful assistive tool. Avoiding regulations is unethical.", "multi": false, "domain": 4}, {"num": 8, "source": "Exam 2", "text": "Which machine learning concept focuses on ensuring that an AI system makes decisions without exhibiting unfair or discriminatory outcomes against certain groups?", "options": [{"letter": "A", "text": "Fairness"}, {"letter": "B", "text": "Explainability"}, {"letter": "C", "text": "Transparency"}, {"letter": "D", "text": "Robustness"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nFairness in AI is a critical ethical principle that addresses the potential for AI systems to perpetuate or amplify societal biases, leading to discriminatory outcomes. It aims to ensure that AI models treat all individuals and groups equitably, avoiding disparate impact based on protected attributes.", "multi": false, "domain": 4}, {"num": 19, "source": "Exam 2", "text": "True or False: Ethical AI guidelines primarily focus on the technical implementation of algorithms and do not consider the societal impact of AI systems.", "options": [{"letter": "A", "text": "False"}, {"letter": "B", "text": "True"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nEthical AI guidelines explicitly and primarily consider the societal impact of AI systems. They address issues such as fairness, accountability, transparency, privacy, and safety, aiming to ensure that AI is developed and deployed responsibly, benefiting humanity while mitigating potential harms.", "multi": false, "domain": 4}, {"num": 25, "source": "Exam 2", "text": "When evaluating a machine learning model, what does the F1-Score represent?", "options": [{"letter": "A", "text": "The total number of correct predictions."}, {"letter": "B", "text": "The percentage of actual positive cases correctly identified."}, {"letter": "C", "text": "The percentage of predicted positive cases that are correct."}, {"letter": "D", "text": "The harmonic mean of precision and recall."}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nThe F1-Score is a metric that combines both precision and recall. It is particularly useful when you have an uneven class distribution (imbalanced classes) because it penalizes models that favor one class over another. A high F1-Score indicates good performance on both precision and recall.", "multi": false, "domain": 4}, {"num": 36, "source": "Exam 2", "text": "Which principle of Responsible AI ensures that AI systems operate in a way that is consistent, reliable, and resistant to malicious attacks or unexpected input variations?", "options": [{"letter": "A", "text": "Explainability"}, {"letter": "B", "text": "Robustness"}, {"letter": "C", "text": "Accountability"}, {"letter": "D", "text": "Fairness"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nRobustness in AI focuses on the resilience and reliability of AI systems. A robust system can handle variations, noise, or adversarial inputs without significant degradation in performance or security. This is crucial for systems deployed in real-world, unpredictable environments.", "multi": false, "domain": 4}, {"num": 43, "source": "Exam 2", "text": "Which ethical principle in AI focuses on ensuring that there is a clear chain of responsibility for the actions and impacts of AI systems, particularly when errors or harms occur?", "options": [{"letter": "A", "text": "Transparency"}, {"letter": "B", "text": "Fairness"}, {"letter": "C", "text": "Accountability"}, {"letter": "D", "text": "Explainability"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nAccountability in AI means establishing clear lines of responsibility for the design, development, deployment, and operation of AI systems. It ensures that when an AI system makes an error or causes harm, there are mechanisms in place to determine who is responsible and how to address the issue.", "multi": false, "domain": 4}, {"num": 57, "source": "Exam 2", "text": "Which ethical principle in AI concerns the ability to understand how an AI system arrived at a particular decision or prediction?", "options": [{"letter": "A", "text": "Reproducibility"}, {"letter": "B", "text": "Explainability"}, {"letter": "C", "text": "Fairness"}, {"letter": "D", "text": "Transparency"}], "correct": ["B"], "explanation": "<strong>Explanation:</strong>\nExplainability in AI refers to the capacity to interpret and understand the reasoning behind an AI system's output or decision. It's about making the \"black box\" of AI more understandable to humans, which is essential for building trust and for debugging or auditing AI systems.", "multi": false, "domain": 4}, {"num": 62, "source": "Exam 2", "text": "When developing an AI system, what does \"Bias\" primarily refer to in the context of training data?", "options": [{"letter": "A", "text": "The statistical distribution of the dataset being perfectly balanced."}, {"letter": "B", "text": "The model's complexity being too high."}, {"letter": "C", "text": "The hardware architecture used for training."}, {"letter": "D", "text": "The data being unrepresentative or skewed, leading to unfair or inaccurate model predictions for certain groups."}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nIn AI, data bias occurs when the training data does not accurately reflect the real-world population or problem, often due to underrepresentation or overrepresentation of certain groups or characteristics. This can lead the model to learn and perpetuate harmful stereotypes or make consistently unfair predictions for specific demographics.", "multi": false, "domain": 4}, {"num": 72, "source": "Exam 2", "text": "Which ethical principle of AI focuses on providing users with understandable information about how an AI system works, its purpose, and its limitations?", "options": [{"letter": "A", "text": "Accountability"}, {"letter": "B", "text": "Fairness"}, {"letter": "C", "text": "Transparency"}, {"letter": "D", "text": "Privacy"}], "correct": ["C"], "explanation": "<strong>Explanation:</strong>\nTransparency in AI refers to the ability to clearly explain an AI system's purpose, how it functions, what data it uses, and its potential limitations. This is crucial for building trust, allowing users to understand the AI's role, and ensuring responsible deployment.", "multi": false, "domain": 4}, {"num": 87, "source": "Exam 2", "text": "Which ethical consideration in AI highlights the importance of protecting sensitive personal information collected and processed by AI systems?", "options": [{"letter": "A", "text": "Explainability"}, {"letter": "B", "text": "Fairness"}, {"letter": "C", "text": "Accountability"}, {"letter": "D", "text": "Privacy and Security"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nPrivacy and Security are paramount ethical considerations in AI. They involve ensuring that personal data used by AI systems is protected from unauthorized access, misuse, or breaches, and that AI systems are designed to respect individuals' privacy rights.", "multi": false, "domain": 4}, {"num": 91, "source": "Exam 2", "text": "Which AWS AI service allows you to extract specific custom entities from text, such as product codes, industry-specific terms, or unique identifiers, that are not part of the pre-trained Comprehend entity types?", "options": [{"letter": "A", "text": "Amazon Comprehend Custom Entities"}, {"letter": "B", "text": "Amazon Comprehend Key Phrases"}, {"letter": "C", "text": "Amazon Comprehend PII Detection"}, {"letter": "D", "text": "Amazon Comprehend Targeted Sentiment"}], "correct": ["A"], "explanation": "<strong>Explanation:</strong>\nAmazon Comprehend Custom Entities enables you to define and train your own custom entity types. This allows the service to identify and extract entities that are specific to your domain or business, beyond the general entities that pre-trained Comprehend can detect.", "multi": false, "domain": 4}, {"num": 97, "source": "Exam 2", "text": "Which ethical principle in AI requires that AI systems are designed and developed to avoid negative impacts on protected groups and ensure equitable outcomes?", "options": [{"letter": "A", "text": "Explainability"}, {"letter": "B", "text": "Robustness"}, {"letter": "C", "text": "Transparency"}, {"letter": "D", "text": "Fairness"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nFairness in AI is concerned with preventing AI systems from perpetuating or amplifying societal biases. It aims to ensure that models produce equitable and unbiased outcomes across different demographic groups, preventing discrimination and promoting inclusive AI.", "multi": false, "domain": 4}, {"num": 103, "source": "Exam 2", "text": "A company has deployed an ML model in production and notices that prediction accuracy has degraded over 6 months. The data science team suspects the input data distribution has shifted from what the model was trained on. Which SageMaker feature specifically monitors for this issue?", "options": [{"letter": "A", "text": "SageMaker Debugger"}, {"letter": "B", "text": "SageMaker Experiments"}, {"letter": "C", "text": "SageMaker Autopilot"}, {"letter": "D", "text": "SageMaker Model Monitor"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nSageMaker Model Monitor continuously monitors the quality of ML models in production by detecting data drift, model quality drift, bias drift, and feature attribution drift. It alerts teams when the input data distribution deviates from the training baseline. Debugger is for training issues. Experiments tracks training runs. Autopilot builds models automatically.", "multi": false, "domain": 4}, {"num": 105, "source": "Exam 2", "text": "Which ethical principle in AI emphasizes the need for transparency in how AI systems are built and operated, allowing for human oversight and intervention when necessary?", "options": [{"letter": "A", "text": "Data Privacy"}, {"letter": "B", "text": "Fairness"}, {"letter": "C", "text": "Accountability"}, {"letter": "D", "text": "Human Oversight"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nWhile transparency and accountability are related, \"Human Oversight\" specifically emphasizes the importance of keeping humans in control of AI systems. This means designing systems that allow for human review, intervention, and the ability to override AI decisions when appropriate, ensuring that AI serves human values.", "multi": false, "domain": 4}, {"num": 112, "source": "Exam 2", "text": "Which concept describes the outcome when an AI system's performance deteriorates because the relationship between the input data and the target variable changes over time, even if the input data distribution remains stable?", "options": [{"letter": "A", "text": "Data Drift"}, {"letter": "B", "text": "Model Bias"}, {"letter": "C", "text": "Overfitting"}, {"letter": "D", "text": "Concept Drift"}], "correct": ["D"], "explanation": "<strong>Explanation:</strong>\nConcept drift occurs when the statistical properties of the target variable, which the model is trying to predict, change over time. This means the underlying relationship between the input features and the target changes, making the model's past learned patterns less accurate. Data drift refers to changes in the input feature distribution.", "multi": false, "domain": 4}];
+const TOTAL = QUESTIONS.length;
+let answeredCount = 0;
+let correctCount  = 0;
+
+function escHtml(s) {
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function buildQuiz() {
+  const container = document.getElementById("questions");
+  QUESTIONS.forEach((q, idx) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+    card.id = "q" + idx;
+    const multiBadge = q.multi ? "<span class=\"multi-badge\">Select 2</span>" : "";
+    const srcBadge   = "<span class=\"q-source\">" + escHtml(q.source) + "</span>";
+    card.innerHTML = `
+      <div class="q-header">
+        <span class="q-num">Q${q.num}</span>
+        ${srcBadge}
+        <span class="q-text">${escHtml(q.text)}${multiBadge}</span>
+      </div>
+      <div class="options" id="opts_${idx}">
+        ${q.options.map(o =>
+          "<label class=\"option-label\" id=\"lbl_" + idx + "_" + o.letter + "\">" +
+          "<input type=\"" + (q.multi ? "checkbox" : "radio") + "\" name=\"q" + idx + "\" value=\"" + o.letter + "\" />" +
+          "<span class=\"letter\">" + o.letter + ")</span>" +
+          "<span>" + escHtml(o.text) + "</span>" +
+          "</label>"
+        ).join("")}
+      </div>
+      <button class="submit-btn" onclick="submitAnswer(${idx})">Check Answer</button>
+      <div id="badge_${idx}" style="margin-top:12px;"></div>
+      <details class="explanation" id="exp_${idx}">
+        <summary>&#x1F4A1; Explanation</summary>
+        <div class="explanation-body">${q.explanation}</div>
+      </details>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function getSelected(idx) {
+  return Array.from(document.querySelectorAll("[name=\"q" + idx + "\"]:checked")).map(i => i.value);
+}
+
+function submitAnswer(idx) {
+  const q = QUESTIONS[idx];
+  const selected = getSelected(idx);
+  if (!selected.length) return;
+
+  document.querySelectorAll("[name=\"q" + idx + "\"]").forEach(i => i.disabled = true);
+  document.querySelector("#q" + idx + " .submit-btn").disabled = true;
+
+  q.options.forEach(o => {
+    const lbl = document.getElementById("lbl_" + idx + "_" + o.letter);
+    lbl.classList.add("disabled");
+    if (q.correct.includes(o.letter)) lbl.classList.add("correct");
+    else if (selected.includes(o.letter)) lbl.classList.add("wrong");
+  });
+
+  const correctSet  = new Set(q.correct);
+  const selectedSet = new Set(selected);
+  let result;
+  if (q.multi) {
+    const allCorrect = q.correct.every(l => selectedSet.has(l)) && selected.every(l => correctSet.has(l));
+    result = allCorrect ? "correct" : (q.correct.some(l => selectedSet.has(l)) ? "partial" : "wrong");
+  } else {
+    result = (selected.length === 1 && selected[0] === q.correct[0]) ? "correct" : "wrong";
+  }
+
+  const badge = document.getElementById("badge_" + idx);
+  const corrStr = q.correct.join(", ");
+  if (result === "correct") {
+    badge.innerHTML = "<span class=\"result-badge correct\">&#x2713; Correct!</span>";
+    document.getElementById("q" + idx).classList.add("answered-correct");
+    correctCount++;
+  } else if (result === "partial") {
+    badge.innerHTML = "<span class=\"result-badge partial\">Partially Correct — full answer: " + corrStr + "</span>";
+    document.getElementById("q" + idx).classList.add("answered-partial");
+  } else {
+    badge.innerHTML = "<span class=\"result-badge wrong\">&#x2717; Incorrect — correct: " + corrStr + "</span>";
+    document.getElementById("q" + idx).classList.add("answered-wrong");
+  }
+
+  document.getElementById("exp_" + idx).setAttribute("open", "");
+  answeredCount++;
+  updateProgress();
+  if (answeredCount === TOTAL) showScore();
+}
+
+function updateProgress() {
+  document.getElementById("progress-bar").style.width = (answeredCount / TOTAL * 100) + "%";
+  document.getElementById("progress-text").textContent = answeredCount + " / " + TOTAL + " answered";
+}
+
+function showScore() {
+  const panel = document.getElementById("score-panel");
+  panel.style.display = "block";
+  document.getElementById("score-correct").textContent = correctCount;
+  const pct = Math.round(correctCount / TOTAL * 100);
+  document.getElementById("score-pct").textContent = "out of " + TOTAL + " questions (" + pct + "%)";
+  let grade;
+  if (pct >= 90)      grade = "Excellent — strong domain mastery!";
+  else if (pct >= 75) grade = "Good — review your misses and try again.";
+  else if (pct >= 60) grade = "Needs work — spend more time on this domain.";
+  else                grade = "Focus here — this domain needs significant study.";
+  document.getElementById("score-grade").textContent = grade;
+  panel.scrollIntoView({ behavior: "smooth" });
+}
+
+buildQuiz();
+updateProgress();
+</script>
+</body>
+</html>
